@@ -28,7 +28,7 @@ const header = () => {
 
         <div className="d-flex w-50">
           <input
-            className="form-control me-2"
+            className="form-control me-2 rounded-pill px-3 m-2"
             type="search"
             placeholder="Search"
             aria-label="Search"

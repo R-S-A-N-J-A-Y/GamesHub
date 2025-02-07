@@ -2,7 +2,7 @@ import Header from "./components/header/Header";
 
 function App() {
   return (
-    <div>
+    <>
       <div className="row">
         <div className="col-md-12 bg-primary">
           <Header />
@@ -14,7 +14,7 @@ function App() {
         </div>
         <div className="col-sm-12 col-md-9 bg-success">Bye</div>
       </div>
-    </div>
+    </>
   );
 }
 
