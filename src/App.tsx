@@ -1,8 +1,12 @@
+import Header from "./components/header/Header";
+
 function App() {
   return (
     <div>
       <div className="row">
-        <div className="col-md-12 bg-primary">Hello</div>
+        <div className="col-md-12 bg-primary">
+          <Header />
+        </div>
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-3 d-none d-md-block bg-danger">
