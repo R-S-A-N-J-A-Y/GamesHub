@@ -1,6 +1,6 @@
 const header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary me-2 ms-2  ">
+    <nav className="navbar navbar-expand-lg text-bg-light me-2 ms-2  ">
       <div className="container-fluid d-flex justify-content-between align-items-center">
         <a className="navbar-brand" href="#">
           Navbar
