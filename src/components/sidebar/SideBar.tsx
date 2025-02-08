@@ -1,12 +1,17 @@
 const SideBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg text-bg-light mx-1 my-3 p-2">
+    <nav className="navbar navbar-expand-lg text-bg-light mx-2 my-5 p-2">
       <div className="navbar-fluid">
         <ul className="navbar-nav nav">
           <li className="navbar-item">
-            <a href="#" className="nav-link fs-4 fw-bolder" role="button">
-              New Releases
+            <a href="#" className="nav-link fs-4 fw-bolder m-0">
+              Reviews
             </a>
+          </li>
+          <li className="navbar-item">
+            <h1 className="nav-link fs-4 fw-bolder m-0" role="button">
+              New Releases
+            </h1>
             <a href="#" className="nav-link" role="button">
               Last 30 Days
             </a>
@@ -17,11 +22,10 @@ const SideBar = () => {
               Next Week
             </a>
           </li>
-
           <li className="navbar-item">
-            <a href="#" className="nav-link fs-4 fw-bolder" role="button">
+            <h1 className="nav-link fs-4 fw-bolder m-0" role="button">
               Generes
-            </a>
+            </h1>
             <a href="#" className="nav-link" role="button">
               Action
             </a>
@@ -29,7 +33,16 @@ const SideBar = () => {
               Horror
             </a>
             <a href="#" className="nav-link" role="button">
-              Fantasy
+              Casual
+            </a>
+            <a href="#" className="nav-link" role="button">
+              Strategy
+            </a>
+            <a href="#" className="nav-link" role="button">
+              Shooter
+            </a>
+            <a href="#" className="nav-link" role="button">
+              Simulaion
             </a>
           </li>
         </ul>
