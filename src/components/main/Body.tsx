@@ -1,5 +1,5 @@
 import Spiderman from "../../assets/GameIcons/Spiderman-Rem.jpg";
-import Like from "./utils/like";
+import Like from "./utils/Like";
 
 const Body = () => {
   return (
