@@ -1,11 +1,11 @@
 import Spiderman from "../../assets/GameIcons/Spiderman-Rem.jpg";
-import DaysGone from "../../assets/GameIcons/DaysGone.jpg";
+// import DaysGone from "../../assets/GameIcons/DaysGone.jpg";
 import Like from "./utils/Like";
 
 const Body = () => {
   return (
-    <div className="container-sm-100 p-2">
-      <div className="container p-0 mx-2 my-4">
+    <div className="container-sm-100 p-2 d-flex flex-column gap-3">
+      <div className="container p-0 m-0">
         <h1 className="fw-bolder" style={{ fontSize: "4rem" }}>
           Hot and Trending
         </h1>
@@ -13,49 +13,26 @@ const Body = () => {
           Top Games by Popularity and Fresh Releases
         </h1>
       </div>
-
-      <div className="container m-0">
-        <div className="row gap-3">
-          <div className="col-lg-3 col-md-5 col-sm-5 bg-dark bg-gradient row gap-2 m-2 p-0 rounded-3">
-            <div className="row p-0 m-0 ">
-              <img
-                src={Spiderman}
-                alt=""
-                className="p-0 rounded float-start"
-                style={{ width: "100%", height: "300px", objectFit: "cover" }}
-              />
-            </div>
-            <div className="row gap-3 p-2 m-0 text-light">
-              <div className="d-flex align-items-center gap-2">Studios</div>
-              <div className="d-flex align-items-center gap-2">
-                <h1 className="fs-3 fw-medium m-0 p-0">
-                  Spider-man Remastered
-                </h1>
-              </div>
-              <div className="d-flex align-items-center gap-2">
-                <Like />
-                <p className="m-0 p-0"> 8.2% </p>
-              </div>
-            </div>
+      <div className="container p-0 m-0 d-flex gap-3">
+        <div className="container p-2 m-0 w-25">
+          <div className="container p-0">
+            <img
+              src={Spiderman}
+              alt="Spiderman"
+              style={{ width: "100%", height: "250px", objectFit: "cover" }}
+              className="rounded-top-4"
+            />
           </div>
-          <div className="col-lg-3 col-md-5 col-sm-5 bg-dark bg-gradient row gap-2 m-2 p-0 rounded-3">
-            <div className="row p-0 m-0 ">
-              <img
-                src={DaysGone}
-                alt=""
-                className="p-0 rounded float-start"
-                style={{ width: "100%", height: "300px", objectFit: "cover" }}
-              />
+          <div
+            className="container p-3 d-flex flex-column justify-content-between bg-dark bg-gradient text-light rounded-bottom-4"
+            style={{ minHeight: "160px" }}
+          >
+            <div className="container p-0">Studio</div>
+            <div className="container p-0 fs-3 fw-medium lh-1">
+              Spiderman Remastered
             </div>
-            <div className="row gap-3 p-2 m-0 text-light">
-              <div className="d-flex align-items-center gap-2">Studios</div>
-              <div className="d-flex align-items-center gap-2">
-                <h1 className="fs-3 fw-medium m-0 p-0">Days Gone</h1>
-              </div>
-              <div className="d-flex align-items-center gap-2">
-                <Like />
-                <p className="m-0 p-0"> 8.2% </p>
-              </div>
+            <div className="container p-0">
+              <Like />
             </div>
           </div>
         </div>
