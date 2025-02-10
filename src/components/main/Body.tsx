@@ -1,19 +1,8 @@
+import useFetchGame from "../../hooks/useFetchGame";
 import Like from "./utils/Like";
-import { useEffect, useState } from "react";
 
 const Body = () => {
-  const [games, setGames] = useState<
-    { name: string; imageSrc: string; likes: number }[]
-  >([]);
-
-  useEffect(() => {
-    fetch("/Data/gameCard.json")
-      .then((res) => res.json())
-      .then((data) => setGames(data))
-      .catch((error) =>
-        console.error("Error loading game data:", error.message)
-      );
-  }, []);
+  const { data } = useFetchGame();
 
   return (
     <div className="container-sm-100 p-2 d-flex flex-column gap-3 p-4">
@@ -27,8 +16,8 @@ const Body = () => {
       </div>
 
       <div className="container p-0 m-0 d-flex flex-wrap gap-4">
-        {games.length > 0 ? (
-          games.map((game, index) => (
+        {data.length > 0 ? (
+          data.map((game, index) => (
             <div
               key={index}
               className="row container p-2 m-0"

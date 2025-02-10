@@ -1,29 +1,7 @@
-import { useEffect, useState } from "react";
+import getGenres from "../../hooks/getGenres";
 
 const SideBar = () => {
-  const [Data, setData] = useState<
-    { name: string; imageSrc: string; likes: number; genres: string[] }[]
-  >([]);
-  let genres: string[] = [];
-
-  useEffect(() => {
-    fetch("/Data/gameCard.json")
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((err) => console.log("Error Loading Genres: ", err.message));
-  }, []);
-
-  const getgenres = () => {
-    let genreS: Set<string> = new Set();
-    Data.forEach((d) => {
-      d.genres.map((g) => {
-        genreS.add(g);
-      });
-    });
-    genres = Array.from(genreS);
-  };
-
-  getgenres();
+  const genres = getGenres();
 
   return (
     <nav className="navbar navbar-expand-lg mx-2 my-5 p-2">
