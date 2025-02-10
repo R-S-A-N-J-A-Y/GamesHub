@@ -8,7 +8,7 @@ const Body = () => {
 
   useEffect(() => {
     fetch("/Data/gameCard.json")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => setGames(data))
       .catch((error) =>
         console.error("Error loading game data:", error.message)

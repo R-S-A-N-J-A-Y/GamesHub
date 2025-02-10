@@ -1,4 +1,30 @@
+import { useEffect, useState } from "react";
+
 const SideBar = () => {
+  const [Data, setData] = useState<
+    { name: string; imageSrc: string; likes: number; genres: string[] }[]
+  >([]);
+  let genres: string[] = [];
+
+  useEffect(() => {
+    fetch("/Data/gameCard.json")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log("Error Loading Genres: ", err.message));
+  }, []);
+
+  const getgenres = () => {
+    let genreS: Set<string> = new Set();
+    Data.forEach((d) => {
+      d.genres.map((g) => {
+        genreS.add(g);
+      });
+    });
+    genres = Array.from(genreS);
+  };
+
+  getgenres();
+
   return (
     <nav className="navbar navbar-expand-lg mx-2 my-5 p-2">
       <div className="navbar-fluid">
@@ -26,24 +52,12 @@ const SideBar = () => {
             <h1 className="nav-link fs-4 fw-bolder m-0" role="button">
               Generes
             </h1>
-            <a href="#" className="nav-link" role="button">
-              Action
-            </a>
-            <a href="#" className="nav-link" role="button">
-              Horror
-            </a>
-            <a href="#" className="nav-link" role="button">
-              Casual
-            </a>
-            <a href="#" className="nav-link" role="button">
-              Strategy
-            </a>
-            <a href="#" className="nav-link" role="button">
-              Shooter
-            </a>
-            <a href="#" className="nav-link" role="button">
-              Simulaion
-            </a>
+            {genres.map((g, index) => (
+              <a key={index} href="#" className="nav-link" role="button">
+                {" "}
+                {g.charAt(0).toUpperCase() + g.slice(1)}
+              </a>
+            ))}
           </li>
         </ul>
       </div>
