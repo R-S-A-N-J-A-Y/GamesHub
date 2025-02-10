@@ -52,12 +52,16 @@ const SideBar = () => {
             <h1 className="nav-link fs-4 fw-bolder m-0" role="button">
               Generes
             </h1>
-            {genres.map((g, index) => (
-              <a key={index} href="#" className="nav-link" role="button">
-                {" "}
-                {g.charAt(0).toUpperCase() + g.slice(1)}
-              </a>
-            ))}
+            {genres.length > 0 ? (
+              genres.map((g, index) => (
+                <a key={index} href="#" className="nav-link" role="button">
+                  {" "}
+                  {g.charAt(0).toUpperCase() + g.slice(1)}
+                </a>
+              ))
+            ) : (
+              <p> Error Loading the Genres... </p>
+            )}
           </li>
         </ul>
       </div>
