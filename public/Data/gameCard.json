@@ -1,12 +1,23 @@
 [
     {
-        "name": "Spider-man Remastered",
+        "name": "Marvel's Spider-man Remastered",
         "imageSrc" : "/GamePreviews/Spiderman-Rem.jpg",
-        "likes": 8.9 
+        "likes": 9.2,
+        "genre": ["action", "adventure", "stealth", "superhero"],
+        "releaseDate": { "date": 12, "month": "august", "year": 2022}
     },
     {
         "name": "Days Gone",
         "imageSrc" : "/GamePreviews/DaysGone.jpg",
-        "likes": 9.2
+        "likes": 8.9,
+        "genre": ["action", "adventure", "survival", "horror"],
+        "releaseDate": { "date": 26, "month": "april", "year": 2019}
+    },
+    {
+        "name": "Marvel's Spider-Man: Miles Morales",
+        "imageSrc" : "/GamePreviews/Spiderman-MM.jpg",
+        "likes": 8.2,
+        "genre": ["action", "adventure", "stealth", "superhero"] ,
+        "releaseDate": { "date": 12, "month": "november", "year": 2020}
     }
 ]
