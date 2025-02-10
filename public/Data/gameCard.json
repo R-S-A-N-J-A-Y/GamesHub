@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Spider-man Remastered",
+        "imageSrc" : "/GamePreviews/Spiderman-Rem.jpg",
+        "likes": 8.9 
+    },
+    {
+        "name": "Days Gone",
+        "imageSrc" : "/GamePreviews/DaysGone.jpg",
+        "likes": 9.2
+    }
+]
