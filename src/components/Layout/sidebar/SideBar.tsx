@@ -4,7 +4,7 @@ const SideBar = () => {
   const genres = getGenres();
 
   return (
-    <nav className="navbar navbar-expand-lg mx-2 my-5 p-2">
+    <nav className="navbar navbar-expand-lg m-2 p-2">
       <div className="navbar-fluid">
         <ul className="navbar-nav nav">
           <li className="navbar-item">
