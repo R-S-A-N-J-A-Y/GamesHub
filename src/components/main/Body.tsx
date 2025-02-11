@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useFetchGame from "../../hooks/useFetchGame";
 import Like from "./utils/Like";
 import { FaPlaystation } from "react-icons/fa";
@@ -6,9 +7,27 @@ import { FaXbox } from "react-icons/fa";
 
 const Body = () => {
   const { data } = useFetchGame();
+  const [marginL, setMarginL] = useState("");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1100) setMarginL("300px");
+      else if (window.innerWidth >= 992 && window.innerWidth <= 1100)
+        setMarginL("200px");
+      else setMarginL("0px");
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="container-sm-100 p-2 d-flex flex-column gap-3 p-4">
+    <div
+      className="container-sm-100 p-2 d-flex flex-column gap-3 p-4"
+      style={{
+        marginTop: "100px",
+        marginLeft: marginL,
+      }}
+    >
       <div className="container p-0 m-0">
         <h1 className="fw-bolder" style={{ fontSize: "50px" }}>
           Hot and Trending
