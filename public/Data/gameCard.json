@@ -4,20 +4,31 @@
         "imageSrc" : "/GamePreviews/Spiderman-Rem.jpg",
         "likes": 9.2,
         "genres": ["action", "adventure", "stealth", "superhero"],
-        "releaseDate": { "date": 12, "month": "august", "year": 2022}
+        "releaseDate": { "date": 12, "month": "august", "year": 2022},
+        "platforms": ["ps5", "pc"]
     },
     {
         "name": "Days Gone",
         "imageSrc" : "/GamePreviews/DaysGone.jpg",
         "likes": 8.9,
         "genres": ["action", "adventure", "survival", "horror"],
-        "releaseDate": { "date": 26, "month": "april", "year": 2019}
+        "releaseDate": { "date": 26, "month": "april", "year": 2019},
+        "platforms": ["ps5", "pc"]
     },
     {
         "name": "Marvel's Spider-Man: Miles Morales",
         "imageSrc" : "/GamePreviews/Spiderman-MM.jpg",
         "likes": 8.2,
         "genres": ["action", "adventure", "stealth", "superhero"] ,
-        "releaseDate": { "date": 12, "month": "november", "year": 2020}
+        "releaseDate": { "date": 12, "month": "november", "year": 2020},
+        "platforms": ["ps5", "pc"]
+    },
+    {
+        "name": "GTA V",
+        "imageSrc" : "/GamePreviews/GTA-V.webp",
+        "likes": 9.4,
+        "genres": ["action", "adventure", "open-world", "crime"],
+        "releaseDate": { "date": 17, "month": "september", "year": 2013},
+        "platforms": ["ps5", "pc", "xbox"]
     }
 ]

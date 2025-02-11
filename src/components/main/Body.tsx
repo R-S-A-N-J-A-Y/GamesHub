@@ -7,7 +7,7 @@ const Body = () => {
   return (
     <div className="container-sm-100 p-2 d-flex flex-column gap-3 p-4">
       <div className="container p-0 m-0">
-        <h1 className="fw-bolder" style={{ fontSize: "4rem" }}>
+        <h1 className="fw-bolder" style={{ fontSize: "50px" }}>
           Hot and Trending
         </h1>
         <h1 className="fs-5 fw-normal">
