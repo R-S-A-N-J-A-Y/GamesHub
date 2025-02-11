@@ -7,7 +7,7 @@ const header = () => {
         left: "0px",
         right: "0px",
         zIndex: 1,
-        height: "80px",
+        height: "100px",
         background: "whitesmoke",
       }}
     >

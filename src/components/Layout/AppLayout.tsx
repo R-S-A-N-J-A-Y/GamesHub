@@ -1,4 +1,4 @@
-import Body from "../main/Body";
+import Context from "../main/Context";
 import Header from "./header/Header";
 import SideBar from "./sidebar/SideBar";
 
@@ -7,7 +7,7 @@ const AppLayout = () => {
     <>
       <Header />
       <SideBar />
-      <Body />
+      <Context />
     </>
   );
 };

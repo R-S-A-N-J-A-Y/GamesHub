@@ -1,20 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useFetchGame from "../../hooks/useFetchGame";
 import Like from "./utils/Like";
 import { FaPlaystation } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa";
 import { FaXbox } from "react-icons/fa";
 
-const Body = () => {
+const Context = () => {
   const { data } = useFetchGame();
+
+  //margin for cards if sidebar is removed for tab & mob view
   const [marginL, setMarginL] = useState("");
+
+  // To dynamically adjust the cards in center for mob view
+  const containeRef = useRef<HTMLDivElement | null>(null);
+  const [itemRow, setItemRow] = useState(1);
 
   useEffect(() => {
     const handleResize = () => {
+      //margin Left
       if (window.innerWidth > 1100) setMarginL("300px");
       else if (window.innerWidth >= 992 && window.innerWidth <= 1100)
         setMarginL("200px");
       else setMarginL("0px");
+
+      //itemRow align center
+      if (containeRef && containeRef.current) {
+        const containerwidth = containeRef.current.clientWidth;
+        const ans = Math.floor(containerwidth / 300);
+        setItemRow(ans || 1);
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -22,6 +36,7 @@ const Body = () => {
 
   return (
     <div
+      ref={containeRef}
       className="container-sm-100 p-2 d-flex flex-column gap-3 p-4"
       style={{
         marginTop: "100px",
@@ -37,7 +52,10 @@ const Body = () => {
         </h1>
       </div>
 
-      <div className="container p-0 m-0 d-flex flex-wrap gap-4">
+      <div
+        className="container p-0 m-0 d-flex flex-wrap gap-4"
+        style={{ justifyContent: itemRow === 1 ? "center" : "start" }}
+      >
         {data.length > 0 ? (
           data.map((game, index) => (
             <div
@@ -86,4 +104,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Context;
