@@ -1,5 +1,8 @@
 import useFetchGame from "../../hooks/useFetchGame";
 import Like from "./utils/Like";
+import { FaPlaystation } from "react-icons/fa";
+import { FaWindows } from "react-icons/fa";
+import { FaXbox } from "react-icons/fa";
 
 const Body = () => {
   const { data } = useFetchGame();
@@ -20,10 +23,10 @@ const Body = () => {
           data.map((game, index) => (
             <div
               key={index}
-              className="row container p-2 m-0"
-              style={{ minWidth: "250px", maxWidth: "300px", flexGrow: 1 }}
+              className="row container p-2 m-0 h-100"
+              style={{ minWidth: "280px", maxWidth: "300px" }}
             >
-              <div className="container p-0">
+              <div className="container p-0" style={{ height: "250px" }}>
                 <img
                   src={game.imageSrc}
                   alt={game.name}
@@ -32,13 +35,17 @@ const Body = () => {
                 />
               </div>
               <div
-                className="container p-3 d-flex flex-column justify-content-between bg-dark bg-gradient text-light rounded-bottom-4"
-                style={{ minHeight: "160px" }}
+                className="container p-3 d-flex flex-column justify-content-between gap-2 bg-dark bg-gradient text-light rounded-bottom-4"
+                // style={{ minHeight: "160px" }}
               >
-                <div className="container p-0">Studio</div>
+                <div className="container p-0 d-flex justify-content-start gap-2">
+                  {game.platforms.includes("ps5") && <FaPlaystation />}
+                  {game.platforms.includes("xbox") && <FaXbox />}
+                  {game.platforms.includes("pc") && <FaWindows />}
+                </div>
                 <div
                   className="container p-0 fw-medium"
-                  style={{ fontSize: "28px", lineHeight: "1.2" }}
+                  style={{ fontSize: "24px", lineHeight: "1.2" }}
                 >
                   {game.name}
                 </div>
