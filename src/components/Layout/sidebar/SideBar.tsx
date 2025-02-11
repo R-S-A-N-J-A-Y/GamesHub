@@ -1,4 +1,4 @@
-import getGenres from "../../hooks/getGenres";
+import getGenres from "../../../hooks/getGenres";
 
 const SideBar = () => {
   const genres = getGenres();

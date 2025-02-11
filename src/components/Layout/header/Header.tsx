@@ -1,6 +1,9 @@
 const header = () => {
   return (
-    <nav className="navbar navbar-expand-lg text-bg-black">
+    <nav
+      className="navbar navbar-expand-lg text-bg-black"
+      style={{ margin: "20px" }}
+    >
       <div className="container-fluid d-flex justify-content-between align-items-center border bg-info bg-opacity-10 border-info-subtle rounded-4">
         <a className="navbar-brand" href="#">
           Navbar
