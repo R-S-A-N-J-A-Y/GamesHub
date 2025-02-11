@@ -35,10 +35,13 @@ const Body = () => {
                 />
               </div>
               <div
-                className="container p-3 d-flex flex-column justify-content-between gap-2 bg-dark bg-gradient text-light rounded-bottom-4"
-                // style={{ minHeight: "160px" }}
+                className="container p-3 d-flex flex-column justify-content-between bg-dark bg-gradient text-light rounded-bottom-4"
+                style={{ gap: "15px" }}
               >
-                <div className="container p-0 d-flex justify-content-start gap-2">
+                <div
+                  className="container p-0 d-flex justify-content-start"
+                  style={{ gap: "10px" }}
+                >
                   {game.platforms.includes("ps5") && <FaPlaystation />}
                   {game.platforms.includes("xbox") && <FaXbox />}
                   {game.platforms.includes("pc") && <FaWindows />}
