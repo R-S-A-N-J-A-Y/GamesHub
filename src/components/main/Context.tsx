@@ -18,15 +18,17 @@ const Context = () => {
   useEffect(() => {
     const handleResize = () => {
       //margin Left
-      if (window.innerWidth > 1100) setMarginL("300px");
-      else if (window.innerWidth >= 992 && window.innerWidth <= 1100)
+      if (window.innerWidth > 1210) setMarginL("300px");
+      else if (window.innerWidth >= 992 && window.innerWidth <= 1210)
         setMarginL("200px");
       else setMarginL("0px");
 
       //itemRow align center
       if (containeRef && containeRef.current) {
         const containerwidth = containeRef.current.clientWidth;
-        const ans = Math.floor(containerwidth / 300);
+        const ans = Math.floor((containerwidth - 24 - 100) / 300);
+        console.log(containerwidth - 24 - 100, ans);
+
         setItemRow(ans || 1);
       }
     };
@@ -53,7 +55,7 @@ const Context = () => {
       </div>
 
       <div
-        className="container p-0 m-0 d-flex flex-wrap gap-4"
+        className="container p-0 m-0 d-flex flex-wrap gap-5"
         style={{ justifyContent: itemRow === 1 ? "center" : "start" }}
       >
         {data.length > 0 ? (
