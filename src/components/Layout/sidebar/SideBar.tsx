@@ -14,8 +14,11 @@ const SideBar = () => {
 
   return (
     <div
-      className="col-lg-2 d-none d-lg-block rounded-end-4 p-0 position-fixed"
-      style={{ background: "white" }}
+      className="rounded-end-4 p-0 position-absolute w-100"
+      style={{
+        background: "white",
+        right: "0",
+      }}
     >
       <nav className="navbar navbar-expand-lg m-2 p-1">
         <div className="navbar-fluid">

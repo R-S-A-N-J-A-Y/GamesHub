@@ -12,7 +12,7 @@ const header = () => {
       }}
     >
       <div
-        className="container-fluid d-flex justify-content-between align-items-center rounded-4 m-4"
+        className="container-fluid d-flex justify-content-between align-items-center rounded-4 m-3 p-0"
         style={{
           background:
             "linear-gradient(202deg, rgba(255,164,204,1) 0%, rgba(98,170,255,1) 100%)",

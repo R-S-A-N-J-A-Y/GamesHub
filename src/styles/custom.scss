@@ -3,10 +3,11 @@ $grid-breakpoints: (
   xs: 0,
   sm: 530px, 
   md: 840px,
-  lg: 970px,
-  xl: 1140px,
+  lg: 990px,
+  xl: 1080px,
   xxl: 1420px,
-  xxxl: 1600px,
+  xxl-md: 1700px,
+  xxxl: 2000px,
 );
 
 // Define container max-widths (optional)
