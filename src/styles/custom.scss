@@ -1,0 +1,22 @@
+// Define your custom breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 530px, 
+  md: 840px,
+  lg: 970px,
+  xl: 1140px,
+  xxl: 1420px,
+  xxxl: 1600px,
+);
+
+// Define container max-widths (optional)
+$container-max-widths: (
+  sm: 440px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Import Bootstrap after customizations
+@import "bootstrap/scss/bootstrap";
