@@ -1,9 +1,11 @@
 import useFetchGame from "../../hooks/useFetchGame";
 import Like from "./utils/Like";
-import { FaPlaystation } from "react-icons/fa";
-import { FaWindows } from "react-icons/fa";
-import { FaXbox } from "react-icons/fa";
-import { BsNintendoSwitch } from "react-icons/bs";
+import {
+  FaPlaystation,
+  FaWindows,
+  FaXbox,
+  BsNintendoSwitch,
+} from "../../../public/Icons/icons";
 
 const Context = () => {
   const { data } = useFetchGame();
