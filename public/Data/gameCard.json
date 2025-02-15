@@ -24,35 +24,11 @@
         "platforms": ["ps5", "pc"]
     },
     {
-        "name": "GTA V",
-        "imageSrc" : "/GamePreviews/GTA-V.webp",
-        "likes": 9.4,
-        "genres": ["action", "adventure", "open-world", "crime"],
-        "releaseDate": { "date": 17, "month": "september", "year": 2013},
-        "platforms": ["ps5", "pc", "xbox"]
-    },
-    {
-        "name": "Marvel's Spider-man Remastered",
-        "imageSrc" : "/GamePreviews/Spiderman-Rem.jpg",
-        "likes": 9.2,
-        "genres": ["action", "adventure", "stealth", "superhero"],
-        "releaseDate": { "date": 12, "month": "august", "year": 2022},
-        "platforms": ["ps5", "pc"]
-    },
-    {
-        "name": "Days Gone",
-        "imageSrc" : "/GamePreviews/DaysGone.jpg",
-        "likes": 8.9,
-        "genres": ["action", "adventure", "survival", "horror"],
-        "releaseDate": { "date": 26, "month": "april", "year": 2019},
-        "platforms": ["ps5", "pc"]
-    },
-    {
-        "name": "Marvel's Spider-Man: Miles Morales",
-        "imageSrc" : "/GamePreviews/Spiderman-MM.jpg",
+        "name": "Marvel's Spider-Man 2",
+        "imageSrc" : "/GamePreviews/Spiderman-2.jpg",
         "likes": 8.2,
         "genres": ["action", "adventure", "stealth", "superhero"] ,
-        "releaseDate": { "date": 12, "month": "november", "year": 2020},
+        "releaseDate": { "date": 20, "month": "october", "year": 2023},
         "platforms": ["ps5", "pc"]
     },
     {
@@ -64,35 +40,84 @@
         "platforms": ["ps5", "pc", "xbox"]
     },
     {
-        "name": "Marvel's Spider-man Remastered",
-        "imageSrc" : "/GamePreviews/Spiderman-Rem.jpg",
+        "name": "The Last of Us Part I",
+        "imageSrc": "/GamePreviews/LastOfUs-1.jpg",
+        "likes": 9.3,
+        "genres": ["action", "adventure", "survival", "horror"],
+        "releaseDate": { "date": 2, "month": "september", "year": 2022 },
+        "platforms": ["ps5", "ps4", "pc"]
+    },
+    {
+        "name": "The Last of Us Part II",
+        "imageSrc": "/GamePreviews/LastOfUs-2.jpg",
+        "likes": 9.3,
+        "genres": ["action", "adventure", "survival", "horror"],
+        "releaseDate": { "date": 19, "month": "june", "year": 2020 },
+        "platforms": ["ps5", "ps4"]
+    },
+    {
+        "name": "Batman: Arkham Asylum",
+        "imageSrc" : "/GamePreviews/batman-ArkhamAsylum.jpg",
         "likes": 9.2,
         "genres": ["action", "adventure", "stealth", "superhero"],
-        "releaseDate": { "date": 12, "month": "august", "year": 2022},
-        "platforms": ["ps5", "pc"]
+        "releaseDate": { "date": 25, "month": "august", "year": 2009},
+        "platforms": ["ps5", "pc", "xbox", "nintendo"]
     },
     {
-        "name": "Days Gone",
-        "imageSrc" : "/GamePreviews/DaysGone.jpg",
-        "likes": 8.9,
-        "genres": ["action", "adventure", "survival", "horror"],
-        "releaseDate": { "date": 26, "month": "april", "year": 2019},
-        "platforms": ["ps5", "pc"]
+        "name": "Batman: Arkham City",
+        "imageSrc" : "/GamePreviews/batman-ArkhamCity.jpg",
+        "likes": 9.2,
+        "genres": ["action", "adventure", "stealth", "superhero"],
+        "releaseDate": { "date": 18, "month": "october", "year": 2011},
+        "platforms": ["ps5", "pc", "xbox", "nintendo"]
     },
     {
-        "name": "Marvel's Spider-Man: Miles Morales",
-        "imageSrc" : "/GamePreviews/Spiderman-MM.jpg",
-        "likes": 8.2,
-        "genres": ["action", "adventure", "stealth", "superhero"] ,
-        "releaseDate": { "date": 12, "month": "november", "year": 2020},
-        "platforms": ["ps5", "pc"]
+        "name": "Batman: Arkham Origins",
+        "imageSrc" : "/GamePreviews/batman-ArkhamOrigins.jpg",
+        "likes": 9.2,
+        "genres": ["action", "adventure", "stealth", "superhero"],
+        "releaseDate": { "date": 25, "month": "october", "year": 2013},
+        "platforms": ["ps5", "pc", "xbox", "nintendo"]
     },
     {
-        "name": "GTA V",
-        "imageSrc" : "/GamePreviews/GTA-V.webp",
-        "likes": 9.4,
-        "genres": ["action", "adventure", "open-world", "crime"],
-        "releaseDate": { "date": 17, "month": "september", "year": 2013},
+        "name": "Batman: Arkham Knight",
+        "imageSrc" : "/GamePreviews/batman-ArkhamKnight.jpg",
+        "likes": 9.2,
+        "genres": ["action", "adventure", "stealth", "superhero"],
+        "releaseDate": { "date": 23, "month": "june", "year": 2015},
+        "platforms": ["ps5", "pc", "xbox", "nintendo"]
+    },
+    {
+        "name": "Cyberpunk 2077",
+        "imageSrc": "/GamePreviews/cyberpunk-2077.jpg",
+        "likes": 8.8,
+        "genres": ["action", "adventure", "open-world", "RPG"],
+        "releaseDate": { "date": 10, "month": "december", "year": 2020 },
+        "platforms": ["ps5", "pc", "xbox"]
+    },
+    {
+        "name": "God of War Ragnarök",
+        "imageSrc": "/GamePreviews/GOW-ragnarok.jpg",
+        "likes": 9.5,
+        "genres": ["action", "adventure", "RPG", "mythology"],
+        "releaseDate": { "date": 9, "month": "november", "year": 2022 },
+        "platforms": ["ps5", "ps4", "pc"]
+    },
+    {
+        "name": "Red Dead Redemption 2",
+        "imageSrc": "/GamePreviews/RDR2.jpg",
+        "likes": 9.7,
+        "genres": ["action", "adventure", "open-world", "western"],
+        "releaseDate": { "date": 26, "month": "october", "year": 2018 },
+        "platforms": ["ps5", "pc", "xbox"]
+    },
+    {
+        "name": "Elden Ring",
+        "imageSrc": "/GamePreviews/eldenRing.jpg",
+        "likes": 9.6,
+        "genres": ["action", "RPG", "open-world", "fantasy"],
+        "releaseDate": { "date": 25, "month": "february", "year": 2022 },
         "platforms": ["ps5", "pc", "xbox"]
     }
+
 ]

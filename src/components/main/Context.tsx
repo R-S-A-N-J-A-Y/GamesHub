@@ -3,6 +3,7 @@ import Like from "./utils/Like";
 import { FaPlaystation } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa";
 import { FaXbox } from "react-icons/fa";
+import { BsNintendoSwitch } from "react-icons/bs";
 
 const Context = () => {
   const { data } = useFetchGame();
@@ -45,6 +46,9 @@ const Context = () => {
                   >
                     {game.platforms.includes("ps5") && <FaPlaystation />}
                     {game.platforms.includes("xbox") && <FaXbox />}
+                    {game.platforms.includes("nintendo") && (
+                      <BsNintendoSwitch />
+                    )}
                     {game.platforms.includes("pc") && <FaWindows />}
                   </div>
                   <div
