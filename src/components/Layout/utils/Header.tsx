@@ -55,7 +55,7 @@ const header = () => {
                 Platforms
               </a>
               <ul
-                className="dropdown-menu p-2"
+                className="dropdown-menu p-2 show"
                 aria-labelledby="platformDropDown"
               >
                 <li>

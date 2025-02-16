@@ -1,12 +1,12 @@
-import useFetchGame from "../../hooks/useFetchGame";
-import Like from "./utils/Like";
+import useFetchGame from "../../../hooks/useFetchGame";
+import Like from "./Like";
 
 import {
   FaPlaystation,
   FaWindows,
   FaXbox,
   BsNintendoSwitch,
-} from "../../../public/Icons/icons";
+} from "../../../../public/Icons/icons";
 
 const GameCard = () => {
   const { data } = useFetchGame();

@@ -1,5 +1,6 @@
-import OrderByDropDown from "./OrderByDropDown";
-import GameCard from "./gameCard";
+import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
+import PlatformsDropDown from "./utils/DropDowns/PlatformsDropDown";
+import GameCard from "./utils/gameCard";
 
 const Context = () => {
   return (
@@ -13,7 +14,10 @@ const Context = () => {
         </h1>
       </div>
 
-      <OrderByDropDown />
+      <div className="d-flex justify-content-start gap-3">
+        <OrderByDropDown />
+        <PlatformsDropDown />
+      </div>
 
       <div className="container-fluid p-0 m-0">
         <GameCard />
