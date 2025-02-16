@@ -1,0 +1,30 @@
+[
+    {
+        "name":"PC",
+        "icon": "FaWindows"
+    },
+    {
+        "name":"Play Station",
+        "icon": "FaPlaystation"
+    },
+    {
+        "name":"Xbox",
+        "icon": "FaXbox"
+    },
+    {
+        "name":"Nintendo",
+        "icon": "BsNintendoSwitch"
+    },
+    {
+        "name":"Mac",
+        "icon": "FaApple"
+    },
+    {
+        "name":"Ios",
+        "icon": "FaApple"
+    },
+    {
+        "name":"Android",
+        "icon": "BsAndroid2"
+    }
+]
