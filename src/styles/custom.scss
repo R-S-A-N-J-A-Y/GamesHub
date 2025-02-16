@@ -9,4 +9,8 @@ $grid-breakpoints: (
   xxxl: 2000px,
 );
 
+.dropdown-item:active {
+  background-color: transparent !important;
+}
+
 @import "bootstrap/scss/bootstrap";

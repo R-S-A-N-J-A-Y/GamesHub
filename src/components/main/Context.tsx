@@ -1,3 +1,4 @@
+import OrderByDropDown from "./OrderByDropDown";
 import GameCard from "./gameCard";
 
 const Context = () => {
@@ -11,6 +12,8 @@ const Context = () => {
           Top Games by Popularity and Fresh Releases
         </h1>
       </div>
+
+      <OrderByDropDown />
 
       <div className="container-fluid p-0 m-0">
         <GameCard />

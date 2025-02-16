@@ -61,7 +61,7 @@ const header = () => {
                 <li>
                   <a
                     href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
+                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2 "
                   >
                     <FaWindows size={"20px"} />
                     PC
