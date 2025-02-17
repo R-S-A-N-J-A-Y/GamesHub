@@ -1,12 +1,3 @@
-import {
-  FaPlaystation,
-  FaWindows,
-  FaXbox,
-  BsNintendoSwitch,
-  FaApple,
-  BsAndroid2,
-} from "../../../../public/Icons/icons";
-
 const header = () => {
   return (
     <nav
