@@ -23,10 +23,22 @@ const Context = () => {
     }
   }, [data]);
 
-  const orderByPlatform = (p: string) => {
+  const SpecifiedPlatform = (p: string) => {
     setGameData(
       p === "clear" ? data : data.filter((g) => g.platforms.includes(p))
     );
+    console.log(data.sort((a, b) => a.name.localeCompare(b.name)));
+  };
+
+  const orderBy = (prop: string) => {
+    if (prop === "name")
+      setGameData([...data].sort((a, b) => a.name.localeCompare(b.name)));
+    else if (prop === "ratings" || prop === "popularity") {
+      setGameData([...data].sort((a, b) => b.likes - a.likes));
+      console.log("HI");
+    } else {
+      setGameData(data);
+    }
   };
 
   return (
@@ -41,8 +53,8 @@ const Context = () => {
       </div>
 
       <div className="d-flex justify-content-start gap-3">
-        <OrderByDropDown />
-        <PlatformsDropDown onClick={orderByPlatform} />
+        <OrderByDropDown onClick={orderBy} />
+        <PlatformsDropDown onClick={SpecifiedPlatform} />
       </div>
 
       <div className="container-fluid p-0 m-0">
