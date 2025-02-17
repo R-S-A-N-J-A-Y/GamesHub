@@ -21,10 +21,9 @@ const header = () => {
       }}
     >
       <div
-        className="container-fluid d-flex justify-content-between align-items-center rounded-4 m-3 px-4 py-0"
+        className="container-fluid d-flex justify-content-between align-items-center border  border-dark-subtle rounded-pill m-3 px-4 py-0"
         style={{
-          background:
-            "linear-gradient(202deg, rgba(255,164,204,1) 0%, rgba(98,170,255,1) 100%)",
+          background: "transparent",
         }}
       >
         <div className="navbar">
@@ -35,89 +34,27 @@ const header = () => {
 
         <div className="d-flex w-50">
           <input
-            className="form-control me-2 rounded-pill px-3 m-2"
+            className="form-control me-2 rounded-pill px-3 py-2 m-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
         </div>
 
-        <div className="navbar d-none d-lg-block">
-          <ul className="navbar-nav mx-auto w-100 d-flex justify-content-around fs-6 fw-bolder fs-color gap-5">
-            <li className="nav-item dropdown">
-              <a
-                href="#"
-                className="nav-link dropdown-toggle"
-                id="platformsDropDown"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                Platforms
+        <div className="navbar d-none d-lg-block px-2">
+          <ul className="navbar-nav w-100 d-flex justify-content-around fs-6 fw-bolder gap-3">
+            <li className="nav-item">
+              <a href="#" className="nav-link">
+                Game Updates
               </a>
-              <ul
-                className="dropdown-menu p-2 show"
-                aria-labelledby="platformDropDown"
-              >
-                <li>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2 "
-                  >
-                    <FaWindows size={"20px"} />
-                    PC
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <FaPlaystation size={"20px"} />
-                    Play Station
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <FaXbox size={"18px"} />
-                    Xbox
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <BsNintendoSwitch size={"16px"} />
-                    Nintendo
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <FaApple size={"20px"} />
-                    Mac
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <FaApple size={"20px"} />
-                    Ios
-                  </a>
-                  <a
-                    href="#"
-                    className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <BsAndroid2 size={"20px"} className="p-0" />
-                    Android
-                  </a>
-                </li>
-              </ul>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link" style={{ color: "white" }}>
+              <a href="#" className="nav-link">
                 Sign Up
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link" style={{ color: "white" }}>
+              <a href="#" className="nav-link">
                 Sign In
               </a>
             </li>

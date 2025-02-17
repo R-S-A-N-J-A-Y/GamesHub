@@ -14,4 +14,16 @@ $grid-breakpoints: (
   background-color: transparent !important;
 }
 
+.form-control:focus,
+.form-control:active {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+
+
 @import "bootstrap/scss/bootstrap";
