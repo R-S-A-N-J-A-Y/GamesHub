@@ -9,7 +9,7 @@ const OrderByDropDown = ({ onClick }: props) => {
   const [order, setOrder] = useState("Order By");
 
   const handleOrder = (o: string) => {
-    setOrder(o);
+    setOrder(o === "Clear" ? "Order By" : o);
     onClick(o.toLowerCase());
   };
 
