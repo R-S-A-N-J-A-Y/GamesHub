@@ -1,5 +1,5 @@
-import useFetchGame from "../../../hooks/useFetchGame";
 import Like from "./Like";
+import { gameObj } from "../Context";
 
 import {
   FaPlaystation,
@@ -8,8 +8,11 @@ import {
   BsNintendoSwitch,
 } from "../../../../public/Icons/icons";
 
-const GameCard = () => {
-  const { data } = useFetchGame();
+interface props {
+  data: gameObj[];
+}
+
+const GameCard = ({ data }: props) => {
   return (
     <div
       className="row row-cols-1 row-cols-sm-2 row-cols-md-3 
