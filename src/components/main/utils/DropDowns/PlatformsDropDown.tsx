@@ -9,7 +9,7 @@ import {
 
 const PlatformsDropDown = () => {
   return (
-    <div className="navbar navbar-expand-lg p-2">
+    <div className="navbar navbar-expand-sm-xs p-2">
       <ul className="navbar-nav fs-6 fw-bolder fs-color gap-5  border border-dark rounded-pill px-2">
         <li className="nav-item dropdown">
           <a

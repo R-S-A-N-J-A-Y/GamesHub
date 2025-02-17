@@ -1,6 +1,6 @@
 import Context from "../main/Context";
-import Header from "./header/Header";
-import SideBar from "./sidebar/SideBar";
+import Header from "./utils/Header";
+import SideBar from "./utils/SideBar";
 
 const AppLayout = () => {
   return (

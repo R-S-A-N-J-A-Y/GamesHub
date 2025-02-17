@@ -1,6 +1,6 @@
 const OrderByDropDown = () => {
   return (
-    <div className="navbar navbar-expand-lg">
+    <div className="navbar navbar-expand-sm-xs ">
       <ul className="navbar-nav fs-6 fw-bolder fs-color gap-5  border border-dark rounded-pill px-2">
         <li className="nav-item dropdown">
           <a
