@@ -1,16 +1,28 @@
 import { useState } from "react";
-import { Props } from "../../App";
+import { signIn } from "../routes/SignIn";
 
-const SignIn = ({ onClick }: Props) => {
+interface Props {
+  onClick: (p: string) => void;
+  userMode: (mod: string) => void;
+}
+
+const SignIn = ({ onClick, userMode }: Props) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const OnSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const OnSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
     console.log(user);
+
+    const res = await signIn({ user, mode: "admin" });
+
+    if (res) userMode("admin");
+    else console.log("User Not Signed In");
   };
 
   return (

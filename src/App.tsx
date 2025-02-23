@@ -8,18 +8,21 @@ export interface Props {
 }
 
 function App() {
-  const [Login, setLogin] = useState("");
+  const [Login, setLogin] = useState("Home");
+  const [isAdmin, setAdmin] = useState(false);
 
-  return (
-    <div>
-      {!Login && <AppLayout onClick={(s) => setLogin(s)} />}
-      {Login && Login === "Sign In" ? (
-        <SignIn onClick={() => setLogin("")} />
-      ) : (
-        <SignUp onClick={() => setLogin("")} />
-      )}
-    </div>
-  );
+  if (Login === "Home") return <AppLayout onClick={(s) => setLogin(s)} />;
+  else if (Login === "Sign In")
+    return (
+      <SignIn
+        onClick={(s) => setLogin(s)}
+        userMode={(mod: string) => {
+          if (mod === "admin") setAdmin(true);
+          else setAdmin(false);
+        }}
+      />
+    );
+  return <SignUp onClick={(s) => setLogin(s)} />;
 }
 
 export default App;
