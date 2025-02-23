@@ -1,14 +1,11 @@
+import { Props } from "../../App";
 import Context from "../main/Context";
 import Header from "./utils/Header";
 import SideBar from "./utils/SideBar";
 
-export interface Props {
-  onClick: (p: string) => void;
-}
-
 const AppLayout = ({ onClick }: Props) => {
   return (
-    <>
+    <div style={{ background: "whitesmoke" }}>
       <Header onClick={onClick} />
       <div className="container-fluid" style={{ paddingTop: "100px" }}>
         <div className="row">
@@ -26,7 +23,7 @@ const AppLayout = ({ onClick }: Props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

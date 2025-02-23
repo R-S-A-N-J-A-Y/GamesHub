@@ -1,4 +1,4 @@
-import { Props } from "../AppLayout";
+import { Props } from "../../../App";
 
 const header = ({ onClick }: Props) => {
   return (
