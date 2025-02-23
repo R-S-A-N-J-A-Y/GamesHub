@@ -1,6 +1,6 @@
 import { Props } from "../../App";
 import Context from "../main/Context";
-import Header from "./utils/Header";
+import Header from "./utils/Header Container/Header";
 import SideBar from "./utils/SideBar";
 
 const AppLayout = ({ onClick, userMode }: Props) => {

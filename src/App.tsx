@@ -12,20 +12,19 @@ function App() {
   const [Login, setLogin] = useState("Home");
   const [mode, setMode] = useState("");
 
+  // Handling User Login Mode
+  const handleMode = (mod: string) => {
+    setLogin("Home");
+    if (mod === "admin") setMode("admin");
+    else if (mod === "user") setMode("user");
+    else setMode("");
+  };
+
+  // Dynamic Rendering Based on the Login Data
   if (Login === "Home")
     return <AppLayout onClick={(s) => setLogin(s)} userMode={mode} />;
   else if (Login === "Sign In")
-    return (
-      <SignIn
-        onClick={(s) => setLogin(s)}
-        userMode={(mod: string) => {
-          setLogin("Home");
-          if (mod === "admin") setMode("admin");
-          else if (mod === "user") setMode("user");
-          else setMode("");
-        }}
-      />
-    );
+    return <SignIn onClick={(s) => setLogin(s)} userMode={handleMode} />;
   return <SignUp onClick={(s) => setLogin(s)} />;
 }
 
