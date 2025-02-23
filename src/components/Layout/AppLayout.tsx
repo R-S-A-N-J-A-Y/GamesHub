@@ -3,10 +3,10 @@ import Context from "../main/Context";
 import Header from "./utils/Header";
 import SideBar from "./utils/SideBar";
 
-const AppLayout = ({ onClick }: Props) => {
+const AppLayout = ({ onClick, userMode }: Props) => {
   return (
     <div style={{ background: "whitesmoke" }}>
-      <Header onClick={onClick} />
+      <Header onClick={onClick} userMode={userMode} />
       <div className="container-fluid" style={{ paddingTop: "100px" }}>
         <div className="row">
           <div className="col-lg-2 d-none d-lg-block position-relative sidebar">

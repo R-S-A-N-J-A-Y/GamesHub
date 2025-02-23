@@ -1,4 +1,6 @@
-import { Props } from "../../App";
+interface Props {
+  onClick: (p: string) => void;
+}
 
 const SignUp = ({ onClick }: Props) => {
   return (

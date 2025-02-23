@@ -1,6 +1,6 @@
 import { Props } from "../../../App";
 
-const header = ({ onClick }: Props) => {
+const header = ({ onClick, userMode }: Props) => {
   return (
     <nav
       className="navbar navbar-expand-lg position-fixed p-1"
@@ -35,31 +35,87 @@ const header = ({ onClick }: Props) => {
         </div>
 
         <div className="navbar d-none d-lg-block px-2">
-          <ul className="navbar-nav w-100 d-flex justify-content-around fs-6 fw-bolder gap-3">
-            <li className="nav-item">
-              <a href="#" className="nav-link">
-                Game Updates
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="#"
-                className="nav-link"
-                onClick={() => onClick("Sign Up")}
-              >
-                Sign Up
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="#"
-                className="nav-link"
-                onClick={() => onClick("Sign In")}
-              >
-                Sign In
-              </a>
-            </li>
-          </ul>
+          {userMode === "" && (
+            <ul className="navbar-nav w-100 d-flex justify-content-around fs-6 fw-bolder gap-3">
+              <li className="nav-item">
+                <a href="#" className="nav-link">
+                  Game Updates
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign Up")}
+                >
+                  Sign Up
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign In")}
+                >
+                  Sign In
+                </a>
+              </li>
+            </ul>
+          )}
+          {userMode === "admin" && (
+            <ul className="navbar-nav w-100 d-flex justify-content-around fs-6 fw-bolder gap-3">
+              <li className="nav-item">
+                <a href="#" className="nav-link">
+                  Game Updates
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign Up")}
+                >
+                  Add Data
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign In")}
+                >
+                  View Data
+                </a>
+              </li>
+            </ul>
+          )}
+          {userMode === "user" && (
+            <ul className="navbar-nav w-100 d-flex justify-content-around fs-6 fw-bolder gap-3">
+              <li className="nav-item">
+                <a href="#" className="nav-link">
+                  Game Updates
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign Up")}
+                >
+                  Cart
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={() => onClick("Sign In")}
+                >
+                  Account
+                </a>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>

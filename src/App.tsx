@@ -5,20 +5,24 @@ import SignUp from "./components/auth/SignUp";
 
 export interface Props {
   onClick: (p: string) => void;
+  userMode: string;
 }
 
 function App() {
   const [Login, setLogin] = useState("Home");
-  const [isAdmin, setAdmin] = useState(false);
+  const [mode, setMode] = useState("");
 
-  if (Login === "Home") return <AppLayout onClick={(s) => setLogin(s)} />;
+  if (Login === "Home")
+    return <AppLayout onClick={(s) => setLogin(s)} userMode={mode} />;
   else if (Login === "Sign In")
     return (
       <SignIn
         onClick={(s) => setLogin(s)}
         userMode={(mod: string) => {
-          if (mod === "admin") setAdmin(true);
-          else setAdmin(false);
+          setLogin("Home");
+          if (mod === "admin") setMode("admin");
+          else if (mod === "user") setMode("user");
+          else setMode("");
         }}
       />
     );
