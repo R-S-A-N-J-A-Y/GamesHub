@@ -16,7 +16,7 @@ function App() {
       {Login && Login === "Sign In" ? (
         <SignIn onClick={() => setLogin("")} />
       ) : (
-        <SignUp />
+        <SignUp onClick={() => setLogin("")} />
       )}
     </div>
   );
