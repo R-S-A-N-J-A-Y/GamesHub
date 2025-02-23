@@ -1,4 +1,6 @@
-const header = () => {
+import { Props } from "../AppLayout";
+
+const header = ({ onClick }: Props) => {
   return (
     <nav
       className="navbar navbar-expand-lg position-fixed p-1"
@@ -40,12 +42,20 @@ const header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <a
+                href="#"
+                className="nav-link"
+                onClick={() => onClick("Sign Up")}
+              >
                 Sign Up
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <a
+                href="#"
+                className="nav-link"
+                onClick={() => onClick("Sign In")}
+              >
                 Sign In
               </a>
             </li>

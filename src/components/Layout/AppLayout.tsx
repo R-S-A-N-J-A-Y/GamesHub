@@ -2,10 +2,14 @@ import Context from "../main/Context";
 import Header from "./utils/Header";
 import SideBar from "./utils/SideBar";
 
-const AppLayout = () => {
+export interface Props {
+  onClick: (p: string) => void;
+}
+
+const AppLayout = ({ onClick }: Props) => {
   return (
     <>
-      <Header />
+      <Header onClick={onClick} />
       <div className="container-fluid" style={{ paddingTop: "100px" }}>
         <div className="row">
           <div className="col-lg-2 d-none d-lg-block position-relative sidebar">
