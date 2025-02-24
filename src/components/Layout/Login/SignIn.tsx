@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  email: z.union([
+    z.string().email({ message: "Please Enter an Valid Email.." }),
+    z.literal("admin"),
+  ]),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters.." }),
+});
+
+type FormData = z.infer<typeof schema>;
 
 const SignIn = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const handleLogin = () => {
+  const handleLogin = (user: FormData) => {
     console.log(user);
   };
 
@@ -15,32 +30,45 @@ const SignIn = () => {
       <div className="m-5 p-3 d-flex gap-3">
         <div className="flex-grow-1">hi</div>
         <div className="p-3 flex-grow-1 d-flex flex-column gap-2 bg-dark">
-          <div className="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-            />
-            <label>Email address</label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
-            />
-            <label>Password</label>
-          </div>
-          <button
-            className="mt-3 btn btn-primary align-self-start"
-            onClick={handleLogin}
-          >
-            Login
-          </button>
+          <form onSubmit={handleSubmit(handleLogin)}>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                {...register("email")}
+              />
+              <label>Email address</label>
+              {errors.email && (
+                <p className="text-danger fs-bold m-2">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div className="form-floating">
+              <input
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                {...register("password")}
+              />
+              <label>Password</label>
+              {errors.password && (
+                <p className="text-danger fs-bold m-2">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
+            <button
+              disabled={!isValid}
+              type="submit"
+              className="mt-3 btn btn-primary align-self-start"
+            >
+              Login
+            </button>
+          </form>
         </div>
       </div>
     </>
