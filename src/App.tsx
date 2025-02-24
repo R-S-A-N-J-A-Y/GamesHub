@@ -1,15 +1,17 @@
-import AppLayout from "./components/Layout/AppLayout";
+import { Route, Routes } from "react-router-dom";
+import AppLayout from "./components/Layout/App/AppLayout";
+import SignUp from "./components/Layout/Login/SignUp";
+import SignIn from "./components/Layout/Login/SignIn";
 
 function App() {
   return (
-    <div
-      style={{
-        backgroundColor: "whitesmoke",
-        //   padding: `150px 0 0 ${window.innerWidth < 1420 ? "0" : "250px"}`,
-      }}
-    >
-      <AppLayout />
-    </div>
+    <Routes>
+      <Route path="/" element={<AppLayout />} />
+      <Route path="/SignUp" element={<SignUp />} />
+      <Route path="/SignIn" element={<SignIn />} />
+      <Route path="/admin" element={<></>} />
+      <Route path="/user" element={<></>} />
+    </Routes>
   );
 }
 

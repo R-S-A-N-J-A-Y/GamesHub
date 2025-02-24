@@ -1,10 +1,10 @@
-import Context from "../main/Context";
+import Context from "../../main/Context";
 import Header from "./utils/Header";
 import SideBar from "./utils/SideBar";
 
 const AppLayout = () => {
   return (
-    <>
+    <div style={{ backgroundColor: "whitesmoke" }}>
       <Header />
       <div className="container-fluid" style={{ paddingTop: "100px" }}>
         <div className="row">
@@ -22,7 +22,7 @@ const AppLayout = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

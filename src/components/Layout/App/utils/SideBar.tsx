@@ -1,4 +1,4 @@
-import getGenres from "../../../hooks/getGenres";
+import getGenres from "../../../../hooks/getGenres";
 import styled from "styled-components";
 
 const NavbarItem = styled.a`
