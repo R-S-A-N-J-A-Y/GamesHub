@@ -2,6 +2,22 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+const callBackend = async (data: FormData) => {
+  const endPoint = data.email === "admin" ? "login/amin" : "login";
+  fetch(`http://localhost:3000/${endPoint}/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      if (!res.ok) alert("Password or Email is Incorrect..");
+      else window.location.href = "./admin";
+    })
+    .catch((err) => alert("Error Connecting to Backend: " + err.message));
+};
+
 const schema = z.object({
   email: z.union([
     z.string().email({ message: "Please Enter an Valid Email.." }),
@@ -23,6 +39,7 @@ const SignIn = () => {
 
   const handleLogin = (user: FormData) => {
     console.log(user);
+    callBackend(user);
   };
 
   return (
