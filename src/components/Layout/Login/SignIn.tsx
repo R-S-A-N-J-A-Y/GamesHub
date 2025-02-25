@@ -1,28 +1,15 @@
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 
-const schema = z.object({
-  email: z.union([
-    z.string().email({ message: "Please Enter an Valid Email.." }),
-    z.literal("admin"),
-  ]),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters.." }),
-});
-
-type FormData = z.infer<typeof schema>;
+interface FormData {
+  email: string;
+  password: string;
+}
 
 const SignIn = () => {
   const [isValidUser, setIsValidUser] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register, handleSubmit } = useForm<FormData>();
 
   const handleLogin = (user: FormData) => {
     console.log(user);
@@ -55,7 +42,7 @@ const SignIn = () => {
         <div className="flex-grow-1">hi</div>
         <div className="p-3 flex-grow-1 d-flex flex-column gap-2 bg-dark">
           {isValidUser && (
-            <div className="form-floating m-2 d-flex justify-content-center">
+            <div className="form-floating m-0 d-flex justify-content-center">
               <p className="mb-2 p-3 bg-danger text-white fw-bold rounded-3">
                 Invalid Login, please try again
               </p>
@@ -71,11 +58,6 @@ const SignIn = () => {
                 {...register("email")}
               />
               <label>Email address</label>
-              {errors.email && (
-                <p className="text-danger fs-bold m-2">
-                  {errors.email.message}
-                </p>
-              )}
             </div>
             <div className="form-floating">
               <input
@@ -86,14 +68,8 @@ const SignIn = () => {
                 {...register("password")}
               />
               <label>Password</label>
-              {errors.password && (
-                <p className="text-danger fs-bold m-2">
-                  {errors.password.message}
-                </p>
-              )}
             </div>
             <button
-              disabled={!isValid}
               type="submit"
               className="mt-3 btn btn-primary align-self-start"
             >
