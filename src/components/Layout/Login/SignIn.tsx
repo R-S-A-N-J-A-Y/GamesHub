@@ -1,26 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const callBackend = async (data: FormData) => {
-  const endPoint = data.email === "admin" ? "login/admin" : "login";
-  fetch(`http://localhost:3000/${endPoint}/signin`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then(async (res) => {
-      if (res.status === 404) {
-        alert("User Not Found..");
-      } else {
-        const data = await res.json();
-        if (data.email === "admin") window.location.href = "./admin";
-      }
-    })
-    .catch((err) => alert("Error Connecting to Backend: " + err.message));
-};
+import { useState } from "react";
 
 const schema = z.object({
   email: z.union([
@@ -35,6 +16,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const SignIn = () => {
+  const [isValidUser, setIsValidUser] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -46,11 +29,38 @@ const SignIn = () => {
     callBackend(user);
   };
 
+  const callBackend = async (data: FormData) => {
+    const endPoint = data.email === "admin" ? "login/admin" : "login";
+    fetch(`http://localhost:3000/${endPoint}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(async (res) => {
+        if (res.status === 404) {
+          setIsValidUser(true);
+        } else {
+          const data = await res.json();
+          if (data.email === "admin") window.location.href = "./admin";
+        }
+      })
+      .catch((err) => alert("Error Connecting to Backend: " + err.message));
+  };
+
   return (
     <>
       <div className="m-5 p-3 d-flex gap-3">
         <div className="flex-grow-1">hi</div>
         <div className="p-3 flex-grow-1 d-flex flex-column gap-2 bg-dark">
+          {isValidUser && (
+            <div className="form-floating m-2 d-flex justify-content-center">
+              <p className="mb-2 p-3 bg-danger text-white fw-bold rounded-3">
+                Invalid Login, please try again
+              </p>
+            </div>
+          )}
           <form onSubmit={handleSubmit(handleLogin)}>
             <div className="form-floating mb-3">
               <input
