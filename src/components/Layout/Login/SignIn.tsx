@@ -1,12 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
+import { IoEyeOffOutline } from "react-icons/io5";
+import { AiOutlineEye } from "react-icons/ai";
+
 interface FormData {
   email: string;
   password: string;
 }
 
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [isValidUser, setIsValidUser] = useState(false);
 
   const { register, handleSubmit } = useForm<FormData>();
@@ -59,14 +63,25 @@ const SignIn = () => {
               />
               <label>Email address</label>
             </div>
-            <div className="form-floating">
+            <div className="form-floating d-flex align-items-center bg-white rounded-3 justify-content-around px-2">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
                 {...register("password")}
+                style={{ border: "none" }}
               />
+              <button
+                style={{ border: "none", background: "none" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword(!showPassword);
+                }}
+              >
+                {!showPassword && <IoEyeOffOutline />}
+                {showPassword && <AiOutlineEye />}
+              </button>
               <label>Password</label>
             </div>
             <button
