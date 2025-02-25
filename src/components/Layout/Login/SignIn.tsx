@@ -3,7 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const callBackend = async (data: FormData) => {
-  const endPoint = data.email === "admin" ? "login/amin" : "login";
+  const endPoint = data.email === "admin" ? "login/admin" : "login";
   fetch(`http://localhost:3000/${endPoint}/signin`, {
     method: "POST",
     headers: {
@@ -11,9 +11,13 @@ const callBackend = async (data: FormData) => {
     },
     body: JSON.stringify(data),
   })
-    .then((res) => {
-      if (!res.ok) alert("Password or Email is Incorrect..");
-      else window.location.href = "./admin";
+    .then(async (res) => {
+      if (res.status === 404) {
+        alert("User Not Found..");
+      } else {
+        const data = await res.json();
+        if (data.email === "admin") window.location.href = "./admin";
+      }
     })
     .catch((err) => alert("Error Connecting to Backend: " + err.message));
 };
