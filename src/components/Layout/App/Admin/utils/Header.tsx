@@ -41,12 +41,12 @@ const header = () => {
             </li>
             <li className="nav-item">
               <a href="/SignUp" className="nav-link">
-                Sign Up
+                Add Game
               </a>
             </li>
             <li className="nav-item">
               <a href="/SignIn" className="nav-link">
-                Sign In
+                Accessories
               </a>
             </li>
           </ul>
