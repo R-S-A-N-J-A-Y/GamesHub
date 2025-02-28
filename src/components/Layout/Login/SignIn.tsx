@@ -44,7 +44,7 @@ const SignIn = () => {
     <>
       <div className="m-5 p-3 d-flex gap-3">
         <div className="flex-grow-1">hi</div>
-        <div className="p-3 flex-grow-1 d-flex flex-column gap-2 bg-dark">
+        <div className="p-4 bg-dark flex-grow-1 rounded-3">
           {isValidUser && (
             <div className="form-floating m-0 d-flex justify-content-center">
               <p className="mb-2 p-3 bg-danger text-white fw-bold rounded-3">
@@ -52,8 +52,11 @@ const SignIn = () => {
               </p>
             </div>
           )}
-          <form onSubmit={handleSubmit(handleLogin)}>
-            <div className="form-floating mb-3">
+          <form
+            className="d-flex flex-column gap-4"
+            onSubmit={handleSubmit(handleLogin)}
+          >
+            <div className="form-floating">
               <input
                 type="text"
                 className="form-control"
@@ -84,12 +87,20 @@ const SignIn = () => {
               </button>
               <label>Password</label>
             </div>
-            <button
-              type="submit"
-              className="mt-3 btn btn-primary align-self-start"
-            >
-              Login
-            </button>
+            <div className="form-floating d-flex align-items-center justify-start gap-4">
+              <button
+                type="submit"
+                className=" btn btn-primary align-self-start"
+              >
+                Login
+              </button>
+              <a
+                href="/signUp"
+                className="m-0 p-0 text-white pe-auto link-underline link-underline-opacity-0"
+              >
+                Need to Create One ?
+              </a>
+            </div>
           </form>
         </div>
       </div>
