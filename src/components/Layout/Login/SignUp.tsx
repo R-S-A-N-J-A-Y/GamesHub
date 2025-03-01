@@ -35,6 +35,21 @@ const SignUp = () => {
 
   const onSubmit = (user: FormData) => {
     console.log(user);
+    callBackend(user);
+  };
+
+  const callBackend = async (user: FormData) => {
+    await fetch("http://localhost:3000/login/user/createuser", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => {
+        if (res.status == 404) {
+          alert("Email Already exists...");
+        } else window.location.href = "./user";
+      })
+      .catch((err) => alert("Error Connecting to Backend: " + err.message));
   };
 
   return (

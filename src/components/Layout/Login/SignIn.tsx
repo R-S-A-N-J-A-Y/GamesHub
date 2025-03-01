@@ -22,7 +22,7 @@ const SignIn = () => {
 
   const callBackend = async (data: FormData) => {
     const endPoint = data.email === "admin" ? "login/admin" : "login";
-    fetch(`http://localhost:3000/${endPoint}/signin`, {
+    await fetch(`http://localhost:3000/${endPoint}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
