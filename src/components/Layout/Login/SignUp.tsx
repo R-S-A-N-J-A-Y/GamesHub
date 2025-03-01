@@ -31,6 +31,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const [showP, setShowP] = useState(false);
@@ -38,6 +39,7 @@ const SignUp = () => {
   const onSubmit = (user: FormData) => {
     console.log(user);
     callBackend(user);
+    reset();
   };
 
   const callBackend = async (user: FormData) => {

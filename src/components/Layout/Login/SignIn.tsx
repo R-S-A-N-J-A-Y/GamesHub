@@ -13,11 +13,12 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isValidUser, setIsValidUser] = useState(false);
 
-  const { register, handleSubmit } = useForm<FormData>();
+  const { register, handleSubmit, reset } = useForm<FormData>();
 
   const handleLogin = (user: FormData) => {
     console.log(user);
     callBackend(user);
+    reset();
   };
 
   const callBackend = async (data: FormData) => {
