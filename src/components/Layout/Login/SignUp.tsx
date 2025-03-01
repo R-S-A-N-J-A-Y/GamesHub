@@ -25,6 +25,8 @@ const schema = z
 type FormData = z.infer<typeof schema>;
 
 const SignUp = () => {
+  const [emailExists, setEmailExists] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -46,7 +48,7 @@ const SignUp = () => {
     })
       .then((res) => {
         if (res.status == 404) {
-          alert("Email Already exists...");
+          setEmailExists(true);
         } else window.location.href = "./user";
       })
       .catch((err) => alert("Error Connecting to Backend: " + err.message));
@@ -55,6 +57,13 @@ const SignUp = () => {
   return (
     <div className="mx-3 my-5 p-5 d-flex p-3 gap-3">
       <div className="p-4 bg-dark  flex-grow-1 rounded-3">
+        {emailExists && (
+          <div className="form-floating m-0 d-flex justify-content-center">
+            <p className="px-3 py-2 bg-danger text-white fw-bold rounded-4">
+              An account with this email already exists. Try logging in.
+            </p>
+          </div>
+        )}
         <form
           className="d-flex flex-column gap-4"
           onSubmit={handleSubmit(onSubmit)}
