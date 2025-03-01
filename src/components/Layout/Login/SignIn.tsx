@@ -22,8 +22,8 @@ const SignIn = () => {
   };
 
   const callBackend = async (data: FormData) => {
-    const endPoint = data.email === "admin" ? "login/admin" : "login";
-    await fetch(`http://localhost:3000/${endPoint}/signin`, {
+    const endPoint = data.email === "admin" ? "admin" : "user";
+    await fetch(`http://localhost:3000/login/${endPoint}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,6 +36,7 @@ const SignIn = () => {
         } else {
           const data = await res.json();
           if (data.email === "admin") window.location.href = "./admin";
+          else window.location.href = "./user";
         }
       })
       .catch((err) => alert("Error Connecting to Backend: " + err.message));
