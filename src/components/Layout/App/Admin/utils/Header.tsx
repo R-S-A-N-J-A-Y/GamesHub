@@ -40,7 +40,7 @@ const header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <a href="/admin/editdb" className="nav-link">
                 Edit Db
               </a>
             </li>

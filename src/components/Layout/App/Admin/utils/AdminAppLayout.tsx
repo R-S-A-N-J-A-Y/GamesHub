@@ -1,6 +1,6 @@
-import Context from "../../../main/Context";
-import Header from "./utils/Header";
-import SideBar from "./utils/SideBar";
+import Context from "../../../../main/Context";
+import Header from "./Header";
+import SideBar from "./SideBar";
 
 const AdminAppLayout = () => {
   return (
