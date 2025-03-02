@@ -6,7 +6,7 @@ const AdminController = () => {
   return (
     <Routes>
       <Route path="/" element={<AdminAppLayout />} />
-      <Route path="/editdb" element={<EditDB />} />
+      <Route path="/editdb/*" element={<EditDB />} />
     </Routes>
   );
 };
