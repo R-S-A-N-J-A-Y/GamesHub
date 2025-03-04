@@ -1,37 +1,11 @@
 const GamesLayout = () => {
   return (
-    <div className="d-flex justify-content-start gap-3 m-3">
-      <button
-        className="btn btn-primary"
-        onClick={() => (window.location.href = "/admin/editdb/games/create")}
-      >
-        Create
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => (window.location.href = "/admin/editdb/games/update")}
-      >
-        Update
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => (window.location.href = "/admin/editdb/games/delete")}
-      >
-        Delete
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => (window.location.href = "/admin/editdb/games/patch")}
-      >
-        Patch
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => (window.location.href = "/admin/editdb/games/view")}
-      >
-        View card
-      </button>
-    </div>
+    <>
+      <button className="btn btn-primary p-3">Create</button>
+      <button className="btn btn-primary p-3">Update</button>
+      <button className="btn btn-primary p-3">Delete</button>
+      <button className="btn btn-primary p-3">View Card</button>
+    </>
   );
 };
 

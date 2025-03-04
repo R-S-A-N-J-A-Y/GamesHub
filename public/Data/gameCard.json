@@ -93,7 +93,9 @@
         "likes": 8.8,
         "genres": ["action", "adventure", "open-world", "RPG"],
         "releaseDate": { "date": 10, "month": "december", "year": 2020 },
-        "platforms": ["ps5", "pc", "xbox"]
+        "platforms": [
+            
+        ]
     },
     {
         "name": "God of War Ragnarök",
