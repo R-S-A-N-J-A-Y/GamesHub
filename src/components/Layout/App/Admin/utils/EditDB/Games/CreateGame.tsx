@@ -40,28 +40,25 @@ const CreateGame = () => {
   };
 
   return (
-    <form
-      className="m-3 p-5 d-flex flex-column gap-3 w-50 bg-dark text-white"
-      onSubmit={handleSubmit(Submit)}
-    >
+    <form className="d-flex flex-column gap-3" onSubmit={handleSubmit(Submit)}>
       <div>
-        <label className="form-label" /> Game Name
+        <label className="form-label"> Game Name </label>
         <input type="text" className="form-control" {...register("name")} />
       </div>
       <div>
-        <label className="form-label" /> Image Src
+        <label className="form-label"> Image Src </label>
         <input type="text" className="form-control" {...register("imageSrc")} />
       </div>
       <div>
-        <label className="form-label" /> Genres
+        <label className="form-label"> Genres </label>
         <input type="text" className="form-control" {...register("genres")} />
       </div>
       <div>
-        <label className="form-label" /> Release Date
+        <label className="form-label"> Release Date </label>
         <input type="date" className="form-control" {...register("date")} />
       </div>
       <div>
-        <label className="form-label" /> Platforms
+        <label className="form-label"> Platforms </label>
         <input
           type="text"
           className="form-control"
@@ -69,7 +66,7 @@ const CreateGame = () => {
         />
       </div>
       <div>
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary p-2" type="submit">
           Submit
         </button>
       </div>
