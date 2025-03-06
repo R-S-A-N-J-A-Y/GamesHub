@@ -36,13 +36,7 @@ const CreateGame = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-      .then((res) => {
-        if (res.status === 400) {
-          alert("Game Already Exists...");
-        }
-      })
-      .catch(() => alert("Error Connecting to Backend..."));
+    }).catch(() => alert("Error Connecting to Backend..."));
   };
 
   return (
