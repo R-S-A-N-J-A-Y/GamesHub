@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import "../../../../../../../styles/AlertBox.css";
 
 interface FormData {
   name: string;
@@ -9,6 +11,7 @@ interface FormData {
 }
 
 const CreateGame = () => {
+  const [isGameExists, setIsGameExists] = useState(false);
   const { register, handleSubmit, reset } = useForm<FormData>();
 
   const Submit = (data: FormData) => {
@@ -29,6 +32,13 @@ const CreateGame = () => {
     reset();
   };
 
+  const alertBoxTime = () => {
+    setIsGameExists(true);
+    setTimeout(() => {
+      setIsGameExists(false);
+    }, 3000);
+  };
+
   const CallBackend = async (data: any) => {
     await fetch("http://localhost:3000/admin/addgame", {
       method: "POST",
@@ -36,11 +46,22 @@ const CreateGame = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).catch(() => alert("Error Connecting to Backend..."));
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          alertBoxTime();
+        }
+      })
+      .catch(() => alert("Error Connecting to Backend..."));
   };
 
   return (
     <form className="d-flex flex-column gap-3" onSubmit={handleSubmit(Submit)}>
+      {isGameExists && (
+        <div className="p-3 alert-box bg-danger text-white fw-bold rounded-3">
+          Game Already Exists...
+        </div>
+      )}
       <div>
         <label className="form-label"> Game Name </label>
         <input type="text" className="form-control" {...register("name")} />
