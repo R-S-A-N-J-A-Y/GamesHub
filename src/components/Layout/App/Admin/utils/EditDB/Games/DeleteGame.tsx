@@ -1,11 +1,30 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import "../../../../../../../styles/AlertBox.css";
 
 const DeleteGame = () => {
-  const { register, handleSubmit } = useForm<{ id: string }>();
+  const { register, handleSubmit, reset } = useForm<{ id: string }>();
+  const [isNotExist, setNotExist] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const Submit = (data: { id: string }) => {
     console.log(data);
     CallBackend(data);
+    reset();
+  };
+
+  const alertBoxTimeDanger = () => {
+    setNotExist(true);
+    setTimeout(() => {
+      setNotExist(false);
+    }, 3000);
+  };
+
+  const alertBoxTimePrimary = () => {
+    setIsDeleted(true);
+    setTimeout(() => {
+      setIsDeleted(false);
+    }, 3000);
   };
 
   const CallBackend = async (data: { id: string }) => {
@@ -20,16 +39,31 @@ const DeleteGame = () => {
         if (res.status === 400) {
           const result = await res.text();
           console.log(result);
+          alertBoxTimeDanger();
           return null;
+        } else {
+          alertBoxTimePrimary();
+          return res.json();
         }
-        return res.json();
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+      })
       .catch(() => alert("Error Connecting with Backend..."));
   };
 
   return (
     <div className="d-flex flex-column gap-4">
+      {isNotExist && (
+        <div className="p-3 alert-box bg-danger text-white fw-bold rounded-3">
+          Game Not Exists...
+        </div>
+      )}
+      {isDeleted && (
+        <div className="p-3 alert-box bg-primary text-white fw-bold rounded-3">
+          Game Deleted Successfull...
+        </div>
+      )}
       <form
         className="d-flex align-items-center"
         onSubmit={handleSubmit(Submit)}
