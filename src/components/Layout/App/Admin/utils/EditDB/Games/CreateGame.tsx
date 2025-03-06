@@ -36,7 +36,13 @@ const CreateGame = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).catch(() => alert("Error Connecting to Backend..."));
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          alert("Game Already Exists...");
+        }
+      })
+      .catch(() => alert("Error Connecting to Backend..."));
   };
 
   return (
@@ -67,7 +73,7 @@ const CreateGame = () => {
       </div>
       <div>
         <button className="btn btn-primary p-2" type="submit">
-          Submit
+          Create Game
         </button>
       </div>
     </form>

@@ -23,8 +23,11 @@ const EditDBLayout = () => {
         </button>
       </div>
 
-      <div className="col bg-dark-subtle rounded-4 p-5">
-        {isGame && <GameForm />}
+      <div
+        className="col bg-dark-subtle rounded-4 p-5"
+        style={{ height: "580px" }}
+      >
+        {isGame && <GameForm state={state} />}
         {!isGame && <UserForm />}
       </div>
 
