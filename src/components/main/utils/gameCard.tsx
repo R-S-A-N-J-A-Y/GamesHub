@@ -45,7 +45,8 @@ const GameCard = ({ data }: props) => {
                 style={{ gap: "10px" }}
               >
                 {game.platforms.includes("pc") && <FaWindows />}
-                {game.platforms.includes("ps5") && <FaPlaystation />}
+                {(game.platforms.includes("ps5") ||
+                  game.platforms.includes("playstation")) && <FaPlaystation />}
                 {game.platforms.includes("xbox") && <FaXbox />}
                 {game.platforms.includes("nintendo") && <BsNintendoSwitch />}
                 {(game.platforms.includes("ios") ||
