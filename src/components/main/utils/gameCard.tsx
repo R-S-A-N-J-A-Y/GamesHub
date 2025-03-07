@@ -6,6 +6,7 @@ import {
   FaWindows,
   FaXbox,
   BsNintendoSwitch,
+  BsApple,
 } from "../../../../public/Icons/icons";
 
 interface props {
@@ -46,6 +47,7 @@ const GameCard = ({ data }: props) => {
                 {game.platforms.includes("xbox") && <FaXbox />}
                 {game.platforms.includes("nintendo") && <BsNintendoSwitch />}
                 {game.platforms.includes("pc") && <FaWindows />}
+                {game.platforms.includes("mac") && <BsApple />}
               </div>
               <div
                 className="container p-0 fw-medium"
