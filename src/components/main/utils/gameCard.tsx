@@ -6,7 +6,8 @@ import {
   FaWindows,
   FaXbox,
   BsNintendoSwitch,
-  BsApple,
+  FaApple,
+  BsAndroid2,
 } from "../../../../public/Icons/icons";
 
 interface props {
@@ -43,11 +44,13 @@ const GameCard = ({ data }: props) => {
                 className="container p-0 d-flex justify-content-start"
                 style={{ gap: "10px" }}
               >
+                {game.platforms.includes("pc") && <FaWindows />}
                 {game.platforms.includes("ps5") && <FaPlaystation />}
                 {game.platforms.includes("xbox") && <FaXbox />}
                 {game.platforms.includes("nintendo") && <BsNintendoSwitch />}
-                {game.platforms.includes("pc") && <FaWindows />}
-                {game.platforms.includes("mac") && <BsApple />}
+                {(game.platforms.includes("ios") ||
+                  game.platforms.includes("mac")) && <FaApple />}
+                {game.platforms.includes("android") && <BsAndroid2 />}
               </div>
               <div
                 className="container p-0 fw-medium"

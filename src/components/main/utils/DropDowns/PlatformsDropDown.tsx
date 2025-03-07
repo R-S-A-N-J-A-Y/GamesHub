@@ -5,7 +5,7 @@ import {
   FaWindows,
   FaXbox,
   BsNintendoSwitch,
-  BsApple,
+  FaApple,
   BsAndroid2,
 } from "../../../../../public/Icons/icons";
 
@@ -77,7 +77,7 @@ const PlatformsDropDown = ({ onClick }: props) => {
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
                 onClick={() => handleClick("Mac")}
               >
-                <BsApple size={"20px"} />
+                <FaApple size={"20px"} />
                 Mac
               </a>
               <a
@@ -85,7 +85,7 @@ const PlatformsDropDown = ({ onClick }: props) => {
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
                 onClick={() => handleClick("IOS")}
               >
-                <BsApple size={"20px"} />
+                <FaApple size={"20px"} />
                 Ios
               </a>
               <a
