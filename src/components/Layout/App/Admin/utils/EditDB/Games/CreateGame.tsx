@@ -12,6 +12,7 @@ interface FormData {
 
 const CreateGame = () => {
   const [isGameExists, setIsGameExists] = useState(false);
+  const [alertBoxContent, setAlertBoxContent] = useState("Already Exists...");
   const { register, handleSubmit, reset } = useForm<FormData>();
 
   const Submit = (data: FormData) => {
@@ -49,8 +50,11 @@ const CreateGame = () => {
     })
       .then((res) => {
         if (res.status === 400) {
-          alertBoxTime();
+          setAlertBoxContent("Already Exists...");
+        } else {
+          setAlertBoxContent("Added Successfully...");
         }
+        alertBoxTime();
       })
       .catch(() => alert("Error Connecting to Backend..."));
   };
@@ -58,8 +62,12 @@ const CreateGame = () => {
   return (
     <form className="d-flex flex-column gap-3" onSubmit={handleSubmit(Submit)}>
       {isGameExists && (
-        <div className="p-3 alert-box bg-danger text-white fw-bold rounded-3">
-          Game Already Exists...
+        <div
+          className={`p-3 alert-box text-white fw-bold rounded-3 ${
+            alertBoxContent === "Already Exists..." ? "bg-danger" : "bg-primary"
+          }`}
+        >
+          Game {alertBoxContent}
         </div>
       )}
       <div>
