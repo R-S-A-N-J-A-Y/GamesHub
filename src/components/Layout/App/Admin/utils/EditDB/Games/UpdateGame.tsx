@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { gameObj } from "../../../../../../main/Context";
+import UpdateGameForm from "./UpdateGameForm";
 
 const UpdateGame = () => {
   const { register, handleSubmit } = useForm<{ id: string }>();
@@ -60,7 +61,7 @@ const UpdateGame = () => {
           Enter Request
         </button>
       </form>
-      {GetGame && GameData && <div>{JSON.stringify(GameData, null, 2)}</div>}
+      {GetGame && GameData && <UpdateGameForm GameData={GameData} />}
     </div>
   );
 };

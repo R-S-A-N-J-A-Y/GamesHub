@@ -5,11 +5,12 @@ import PlatformsDropDown from "./utils/DropDowns/PlatformsDropDown";
 import GameCard from "./utils/gameCard";
 
 export interface gameObj {
+  date: string | number | Date;
   name: string;
   imageSrc: string;
   likes: number;
   genres: string[];
-  releaseDate: { date: number; month: string; year: number };
+  releaseDate: string;
   platforms: string[];
 }
 
