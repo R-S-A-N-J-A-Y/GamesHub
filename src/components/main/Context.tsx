@@ -9,9 +9,9 @@ export interface gameObj {
   name: string;
   imageSrc: string;
   likes: number;
-  genres: string[];
+  genres: string[] | string;
   releaseDate: string;
-  platforms: string[];
+  platforms: string[] | string;
 }
 
 const Context = () => {

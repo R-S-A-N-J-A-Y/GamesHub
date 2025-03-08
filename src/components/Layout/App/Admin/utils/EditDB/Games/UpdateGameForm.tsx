@@ -1,7 +1,15 @@
 import { useForm } from "react-hook-form";
-import { gameObj } from "../../../../../../main/Context";
 import { useEffect } from "react";
 import { format } from "date-fns";
+
+import { gameObj } from "./UpdateGame";
+
+interface formObj
+  extends Omit<gameObj, "releaseDate" | "genres" | "platforms"> {
+  releaseDate: Date;
+  genres: string[];
+  platforms: string[];
+}
 
 const UpdateGameForm = ({ GameData }: { GameData: gameObj | null }) => {
   const { register, handleSubmit, setValue } = useForm<gameObj>();
@@ -17,11 +25,38 @@ const UpdateGameForm = ({ GameData }: { GameData: gameObj | null }) => {
   }, [GameData, setValue]);
 
   const Submit = (data: gameObj) => {
+    const genresArray =
+      typeof data.genres === "string"
+        ? data.genres.split(",").map((item) => item.trim())
+        : data.genres;
+    const platformArray =
+      typeof data.platforms === "string"
+        ? data.platforms.split(",").map((item) => item.trim())
+        : data.platforms;
+
     const updatedData = {
       ...data,
       releaseDate: new Date(data.releaseDate),
+      genres: genresArray,
+      platforms: platformArray,
+      id: GameData === null ? "" : GameData.id,
     };
     console.log(updatedData);
+    callBackend(updatedData);
+  };
+
+  const callBackend = (data: formObj) => {
+    fetch(`http://localhost:3000/admin/updateGame/${data.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          alert("Cannot Find Game...");
+        }
+      })
+      .catch(() => alert("Unable to Connect Backend..."));
   };
 
   if (GameData === null) return null;

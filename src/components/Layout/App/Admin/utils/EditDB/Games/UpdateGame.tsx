@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { gameObj } from "../../../../../../main/Context";
 import UpdateGameForm from "./UpdateGameForm";
+
+export interface gameObj {
+  id: string;
+  date: Date;
+  name: string;
+  imageSrc: string;
+  likes: number;
+  genres: string;
+  releaseDate: string;
+  platforms: string;
+}
 
 const UpdateGame = () => {
   const { register, handleSubmit } = useForm<{ id: string }>();
-  const [GetGame, setGetGame] = useState<boolean>(false);
   const [GameData, setGameData] = useState<gameObj | null>(null);
 
   const Submit = (data: { id: string }) => {
@@ -26,8 +35,7 @@ const UpdateGame = () => {
       })
       .then((res) => {
         if (!res) return;
-        setGetGame(true);
-        setGameData(res);
+        setGameData({ ...res, id: data.id });
         console.log(res);
       })
       .catch((err) => {
@@ -61,7 +69,7 @@ const UpdateGame = () => {
           Enter Request
         </button>
       </form>
-      {GetGame && GameData && <UpdateGameForm GameData={GameData} />}
+      {GameData && <UpdateGameForm GameData={GameData} />}
     </div>
   );
 };
