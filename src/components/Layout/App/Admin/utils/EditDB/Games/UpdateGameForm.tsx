@@ -11,7 +11,12 @@ interface formObj
   platforms: string[];
 }
 
-const UpdateGameForm = ({ GameData }: { GameData: gameObj | null }) => {
+interface Props {
+  GameData: gameObj;
+  onUpdate: (status: boolean) => void;
+}
+
+const UpdateGameForm = ({ GameData, onUpdate }: Props) => {
   const { register, handleSubmit, setValue } = useForm<gameObj>();
 
   useEffect(() => {
@@ -37,6 +42,7 @@ const UpdateGameForm = ({ GameData }: { GameData: gameObj | null }) => {
     const updatedData = {
       ...data,
       releaseDate: new Date(data.releaseDate),
+
       genres: genresArray,
       platforms: platformArray,
       id: GameData === null ? "" : GameData.id,
@@ -53,13 +59,11 @@ const UpdateGameForm = ({ GameData }: { GameData: gameObj | null }) => {
     })
       .then((res) => {
         if (res.status === 400) {
-          alert("Cannot Find Game...");
-        }
+          onUpdate(false);
+        } else onUpdate(true);
       })
       .catch(() => alert("Unable to Connect Backend..."));
   };
-
-  if (GameData === null) return null;
 
   return (
     <form
