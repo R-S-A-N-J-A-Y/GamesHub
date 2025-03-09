@@ -1,6 +1,5 @@
 //react hooks
 import { useEffect, useState } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 //Custom Hooks
@@ -10,8 +9,8 @@ import useFetchGame from "../../hooks/useFetchGame";
 //pages
 import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
 import PlatformsDropDown from "./utils/DropDowns/PlatformsDropDown";
-import GameCard from "./utils/GameCard";
-import GameCardSkeleton from "./utils/gameCardSkeleton";
+import GameCard from "./utils/gameCard";
+import GameCardSkeleton from "./utils/GameCardSkeleton";
 
 const Context = () => {
   const { data, isLoading } = useFetchGame();
