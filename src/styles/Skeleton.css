@@ -1,0 +1,12 @@
+.skeleton-wrapper > span {
+    display: block !important;
+    line-height: 1 !important;
+}
+
+.skeleton-wrapper > span > br {
+    display: none !important;
+}
+
+.skeleton-wrapper > span > span{
+    border-radius: 20px !important;
+}

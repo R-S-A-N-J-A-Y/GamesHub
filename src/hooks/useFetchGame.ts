@@ -16,9 +16,11 @@ const useFetchGame = () => {
     useEffect( () => {
         fetch("http://localhost:3000/getgame")
         .then(res => res.json())
-        .then(data => {
+        .then(async(data) => {
             setData(data);
-            setIsLoading(false);
+            await setTimeout( () => {
+                setIsLoading(false);
+            }, 3000 );
         })
         .catch(err => console.log("Error Loading Genres: ", err.message))
     }, [] );

@@ -1,9 +1,17 @@
+//react hooks
 import { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
+//Custom Hooks
+import { gameObj } from "../../hooks/useFetchGame";
 import useFetchGame from "../../hooks/useFetchGame";
+
+//pages
 import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
 import PlatformsDropDown from "./utils/DropDowns/PlatformsDropDown";
-import GameCard from "./utils/gameCard";
-import { gameObj } from "../../hooks/useFetchGame";
+import GameCard from "./utils/GameCard";
+import GameCardSkeleton from "./utils/gameCardSkeleton";
 
 const Context = () => {
   const { data, isLoading } = useFetchGame();
@@ -49,7 +57,7 @@ const Context = () => {
       </div>
 
       <div className="container-fluid p-0 m-0">
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <GameCardSkeleton />}
         {!isLoading && <GameCard data={gameData} />}
       </div>
     </div>
