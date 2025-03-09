@@ -1,15 +1,29 @@
 import { useEffect, useState } from "react"
 
+export interface gameObj{
+    name: string,
+    imageSrc: string;
+    likes: number;
+    genres: string[];
+    releaseDate: string;
+    platforms: string[];
+};
+
 const useFetchGame = () => {
-    const [data, setData] = useState<any []>([]);
+    const [data, setData] = useState<gameObj []>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect( () => {
         fetch("http://localhost:3000/getgame")
         .then(res => res.json())
-        .then(data => setData(data))
+        .then(data => {
+            setData(data);
+            setIsLoading(false);
+        })
         .catch(err => console.log("Error Loading Genres: ", err.message))
     }, [] );
     console.log(data);
-    return {data};
+    return {data, isLoading};
 }
 
 export default useFetchGame;

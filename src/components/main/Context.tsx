@@ -3,19 +3,10 @@ import useFetchGame from "../../hooks/useFetchGame";
 import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
 import PlatformsDropDown from "./utils/DropDowns/PlatformsDropDown";
 import GameCard from "./utils/gameCard";
-
-export interface gameObj {
-  date: string | number | Date;
-  name: string;
-  imageSrc: string;
-  likes: number;
-  genres: string[] | string;
-  releaseDate: string;
-  platforms: string[] | string;
-}
+import { gameObj } from "../../hooks/useFetchGame";
 
 const Context = () => {
-  const { data } = useFetchGame();
+  const { data, isLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
 
   useEffect(() => {
@@ -58,7 +49,8 @@ const Context = () => {
       </div>
 
       <div className="container-fluid p-0 m-0">
-        <GameCard data={gameData} />
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && <GameCard data={gameData} />}
       </div>
     </div>
   );
