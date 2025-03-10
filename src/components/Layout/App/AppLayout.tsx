@@ -11,7 +11,7 @@ const AppLayout = () => {
       <Routes>
         <Route path="/" element={<NUserAppLayout />}></Route>
         <Route path="/admin/*" element={<AdminController />}></Route>
-        <Route path="/admin/user" element={<UserAppLayout />}></Route>
+        <Route path="/user" element={<UserAppLayout />}></Route>
       </Routes>
     </Suspense>
   );
