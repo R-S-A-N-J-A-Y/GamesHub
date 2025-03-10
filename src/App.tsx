@@ -1,17 +1,19 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import AppLayout from "./components/Layout/App/AppLayout";
-import SignUp from "./components/Layout/Login/SignUp";
-import SignIn from "./components/Layout/Login/SignIn";
+
+const AppLayout = lazy(() => import("./components/Layout/App/AppLayout"));
+const SignUp = lazy(() => import("./components/Layout/Login/SignUp"));
+const SignIn = lazy(() => import("./components/Layout/Login/SignIn"));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<AppLayout mode="" />} />
-      <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/SignIn" element={<SignIn />} />
-      <Route path="/admin/*" element={<AppLayout mode="admin" />} />
-      <Route path="/user" element={<AppLayout mode="user" />} />
-    </Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/*" element={<AppLayout />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/SignIn" element={<SignIn />} />
+      </Routes>
+    </Suspense>
   );
 }
 
