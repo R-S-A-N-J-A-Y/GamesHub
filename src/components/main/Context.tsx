@@ -13,8 +13,10 @@ import GameCard from "./utils/gameCard";
 import GameCardSkeleton from "./utils/GameCardSkeleton";
 
 const Context = () => {
-  const { data, isLoading } = useFetchGame();
+  const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
+  // const [orderBy, setOrderBy] = useState("");
+  const [platform, setPlatform] = useState("");
 
   useEffect(() => {
     if (data) {
@@ -22,21 +24,34 @@ const Context = () => {
     }
   }, [data]);
 
-  const SpecifiedPlatform = (p: string) => {
-    setGameData(
-      p === "clear" ? data : data.filter((g) => g.platforms.includes(p))
-    );
-  };
-
-  const orderBy = (prop: string) => {
-    if (prop === "name")
-      setGameData([...gameData].sort((a, b) => a.name.localeCompare(b.name)));
-    else if (prop === "ratings" || prop === "popularity") {
-      setGameData([...gameData].sort((a, b) => b.likes - a.likes));
-      console.log("HI");
-    } else {
-      setGameData(data);
+  useEffect(() => {
+    if (platform) {
+      setIsLoading(true);
+      callBackend();
     }
+  }, [platform]);
+
+  // const SpecifiedPlatform = (p: string) => {
+  //   setPlatform(p);
+  //   callBackend();
+  // };
+
+  // const SpecifiedOrder = (p: string) => {
+  //   setOrderBy(p);
+  // };
+
+  const callBackend = async () => {
+    console.log(platform);
+    await fetch(`http://localhost:3000/getgameby/${platform}`)
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res);
+        setData(res);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 3000);
+      })
+      .catch((err) => alert(err));
   };
 
   return (
@@ -51,8 +66,8 @@ const Context = () => {
       </div>
 
       <div className="d-flex justify-content-start gap-3">
-        <OrderByDropDown onClick={orderBy} />
-        <PlatformsDropDown onClick={SpecifiedPlatform} />
+        <OrderByDropDown onClick={(p) => setPlatform(p)} />
+        <PlatformsDropDown onClick={(p) => setPlatform(p)} />
       </div>
 
       <div className="container-fluid p-0 m-0">

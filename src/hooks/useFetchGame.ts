@@ -24,8 +24,8 @@ const useFetchGame = () => {
         })
         .catch(err => console.log("Error Loading Genres: ", err.message))
     }, [] );
-    console.log(data);
-    return {data, isLoading};
+    // console.log(data);
+    return {data, setData, isLoading, setIsLoading};
 }
 
 export default useFetchGame;
