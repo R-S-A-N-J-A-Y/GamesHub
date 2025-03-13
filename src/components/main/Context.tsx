@@ -15,7 +15,7 @@ import GameCardSkeleton from "./utils/GameCardSkeleton";
 const Context = () => {
   const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
-  // const [orderBy, setOrderBy] = useState("");
+  const [orderBy, setOrderBy] = useState("");
   const [platform, setPlatform] = useState("");
 
   useEffect(() => {
@@ -25,33 +25,25 @@ const Context = () => {
   }, [data]);
 
   useEffect(() => {
-    if (platform) {
+    if (platform || orderBy) {
       setIsLoading(true);
       callBackend();
     }
-  }, [platform]);
-
-  // const SpecifiedPlatform = (p: string) => {
-  //   setPlatform(p);
-  //   callBackend();
-  // };
-
-  // const SpecifiedOrder = (p: string) => {
-  //   setOrderBy(p);
-  // };
+  }, [platform, orderBy]);
 
   const callBackend = async () => {
     console.log(platform);
-    await fetch(`http://localhost:3000/getgameby/${platform}`)
+    await fetch(
+      `http://localhost:3000/getgameby?platform=${platform}&orderBy=${orderBy}`
+    )
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
         setData(res);
         setTimeout(() => {
           setIsLoading(false);
         }, 3000);
       })
-      .catch((err) => alert(err));
+      .catch(() => alert("Failed to Connect to the Backend..."));
   };
 
   return (
@@ -66,7 +58,7 @@ const Context = () => {
       </div>
 
       <div className="d-flex justify-content-start gap-3">
-        <OrderByDropDown onClick={(p) => setPlatform(p)} />
+        <OrderByDropDown onClick={(p) => setOrderBy(p)} />
         <PlatformsDropDown onClick={(p) => setPlatform(p)} />
       </div>
 
