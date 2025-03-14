@@ -18,7 +18,7 @@ const PlatformsDropDown = ({ onClick }: props) => {
 
   const handleClick = (p: string) => {
     selectPlatform(p === "Clear" ? "Platforms" : p);
-    onClick(p === "PlayStation" ? "ps5" : p.toLowerCase());
+    onClick(p.toLowerCase());
   };
 
   return (
