@@ -1,10 +1,10 @@
 //react hooks
-import { useEffect, useState } from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 
 //Custom Hooks
-import { gameObj } from "../../hooks/useFetchGame";
-import useFetchGame from "../../hooks/useFetchGame";
+// import { gameObj } from "../../hooks/useFetchGame";
+// import useFetchGame from "../../hooks/useFetchGame";
+import useFetchByOrder from "../../hooks/useFetchByOrder";
 
 //pages
 import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
@@ -13,38 +13,7 @@ import GameCard from "./utils/gameCard";
 import GameCardSkeleton from "./utils/GameCardSkeleton";
 
 const Context = () => {
-  const { data, setData, isLoading, setIsLoading } = useFetchGame();
-  const [gameData, setGameData] = useState<gameObj[]>([]);
-  const [orderBy, setOrderBy] = useState("");
-  const [platform, setPlatform] = useState("");
-
-  useEffect(() => {
-    if (data) {
-      setGameData([...data]);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (platform || orderBy) {
-      setIsLoading(true);
-      callBackend();
-    }
-  }, [platform, orderBy]);
-
-  const callBackend = async () => {
-    console.log(platform);
-    await fetch(
-      `http://localhost:3000/getgameby?platform=${platform}&orderBy=${orderBy}`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 3000);
-      })
-      .catch(() => alert("Failed to Connect to the Backend..."));
-  };
+  const { gameData, isLoading, setOrderBy, setPlatform } = useFetchByOrder();
 
   return (
     <div className="container-fluid d-flex flex-column gap-3 p-4 m-0">
