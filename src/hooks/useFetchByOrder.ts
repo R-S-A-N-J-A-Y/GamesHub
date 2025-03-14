@@ -6,6 +6,7 @@ const useGameData = () => {
   const [gameData, setGameData] = useState<gameObj[]>([]);
   const [orderBy, setOrderBy] = useState("");
   const [platform, setPlatform] = useState("");
+  const [genre, setGenre] = useState("");
 
   useEffect(() => {
     if (data) {
@@ -14,16 +15,16 @@ const useGameData = () => {
   }, [data]);
 
   useEffect(() => {
-    if (platform || orderBy) {
+    if (platform || orderBy || genre) {
       setIsLoading(true);
       fetchGamesByFilters();
     }
-  }, [platform, orderBy]);
+  }, [platform, orderBy, genre]);
 
   const fetchGamesByFilters = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/getgameby?platform=${platform}&orderBy=${orderBy}`
+        `http://localhost:3000/getgameby?platform=${platform}&orderBy=${orderBy}&genre=${genre}`
       );
       const result = await response.json();
       setData(result);
@@ -33,7 +34,7 @@ const useGameData = () => {
     }
   };
 
-  return { gameData, isLoading, orderBy, setOrderBy, platform, setPlatform };
+  return { gameData, isLoading, orderBy, setOrderBy, platform, setPlatform, setGenre };
 };
 
 export default useGameData;

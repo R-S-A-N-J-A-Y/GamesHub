@@ -9,8 +9,23 @@ const NavbarItem = styled.a`
   }
 `;
 
-const SideBar = () => {
+interface Props {
+  onClick: (p: string) => void;
+}
+
+const SideBar = ({ onClick }: Props) => {
   const genres = getGenres();
+
+  const handleGenresClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    const genreI = e.currentTarget.getAttribute("data-key");
+    if (genreI === null) return;
+
+    const genreIndex = parseInt(genreI, 10);
+    if (isNaN(genreIndex)) return;
+    onClick(genres[genreIndex].toLowerCase());
+  };
 
   return (
     <div
@@ -56,6 +71,8 @@ const SideBar = () => {
                     href="#"
                     className="nav-link rounded-3"
                     role="button"
+                    data-key={index}
+                    onClick={handleGenresClick}
                   >
                     {" "}
                     {g.charAt(0).toUpperCase() + g.slice(1)}
