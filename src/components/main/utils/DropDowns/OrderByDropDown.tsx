@@ -50,7 +50,11 @@ const OrderByDropDown = ({ onClick }: props) => {
               </a>
             </li>
             <li>
-              <a className="nav-link dropdown-item" href="#">
+              <a
+                className="nav-link dropdown-item"
+                href="#"
+                onClick={() => handleOrder("Date")}
+              >
                 Release Date
               </a>
             </li>
@@ -58,7 +62,7 @@ const OrderByDropDown = ({ onClick }: props) => {
               <a
                 className="nav-link dropdown-item"
                 href="#"
-                onClick={() => handleOrder("Ratings")}
+                onClick={() => handleOrder("Likes")}
               >
                 Ratings
               </a>
