@@ -4,7 +4,7 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 
 const AdminAppLayout = () => {
-  const { gameData, isLoading, setOrderBy, setPlatform, setGenre } =
+  const { gameData, isLoading, setOrderBy, setPlatform, genre, setGenre } =
     useFetchByOrder();
 
   const handleGenre = (g: string) => {
@@ -22,7 +22,7 @@ const AdminAppLayout = () => {
               className="rounded-end-4 p-0 position-fixed bg-white"
               style={{ width: "inherit" }}
             >
-              <SideBar onClick={handleGenre} />
+              <SideBar onClick={handleGenre} genre={genre} />
             </div>
           </div>
 

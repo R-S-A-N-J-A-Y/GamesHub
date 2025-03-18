@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetchGame, { gameObj } from "./useFetchGame";
 
-const useGameData = () => {
+const useFetchByOrder = () => {
   const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
   const [orderBy, setOrderBy] = useState("");
@@ -34,7 +34,7 @@ const useGameData = () => {
     }
   };
 
-  return { gameData, isLoading, orderBy, setOrderBy, platform, setPlatform, setGenre };
+  return { gameData, isLoading, orderBy, setOrderBy, platform, setPlatform, genre, setGenre };
 };
 
-export default useGameData;
+export default useFetchByOrder;
