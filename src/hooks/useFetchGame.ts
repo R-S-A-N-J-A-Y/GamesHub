@@ -22,7 +22,11 @@ const useFetchGame = () => {
                 setIsLoading(false);
             }, 3000 );
         })
-        .catch(err => console.log("Error Loading Genres: ", err.message))
+        .catch(err => {
+            setIsLoading(false);
+            alert("Error Connecting To Backend...");
+            console.warn("Error Loading Genres: ", err.message);
+        })
     }, [] );
     // console.log(data);
     return {data, setData, isLoading, setIsLoading};
