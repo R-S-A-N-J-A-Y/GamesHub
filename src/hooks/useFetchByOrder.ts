@@ -4,16 +4,20 @@ import useFetchGame, { gameObj } from "./useFetchGame";
 const useFetchByOrder = () => {
   const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
+  
   const [orderBy, setOrderBy] = useState("");
   const [platform, setPlatform] = useState("");
+
   const [genre, setGenre] = useState("");
 
+  //Setting the Game Data.
   useEffect(() => {
     if (data) {
       setGameData([...data]);
     }
   }, [data]);
 
+  //set the isLoading, and calling the request calling function.
   useEffect(() => {
     if (platform || orderBy || genre) {
       setIsLoading(true);
@@ -21,6 +25,7 @@ const useFetchByOrder = () => {
     }
   }, [platform, orderBy, genre]);
 
+  // calling the Backend.
   const fetchGamesByFilters = async () => {
     try {
       const response = await fetch(
