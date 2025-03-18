@@ -4,8 +4,15 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 
 const AdminAppLayout = () => {
-  const { gameData, isLoading, setOrderBy, setPlatform, genre, setGenre } =
-    useFetchByOrder();
+  const {
+    gameData,
+    isLoading,
+    orderBy,
+    setOrderBy,
+    setPlatform,
+    genre,
+    setGenre,
+  } = useFetchByOrder();
 
   const handleGenre = (g: string) => {
     console.log(g);
@@ -30,6 +37,7 @@ const AdminAppLayout = () => {
             <Context
               gameData={gameData}
               isLoading={isLoading}
+              orderBy={orderBy}
               setOrderBy={setOrderBy}
               setPlatform={setPlatform}
             />

@@ -16,11 +16,18 @@ import GameCardSkeleton from "./utils/GameCardSkeleton";
 interface Props {
   gameData: gameObj[];
   isLoading: boolean;
+  orderBy: string;
   setOrderBy: (order: string) => void;
   setPlatform: (platform: string) => void;
 }
 
-const Context = ({ gameData, isLoading, setOrderBy, setPlatform }: Props) => {
+const Context = ({
+  gameData,
+  isLoading,
+  orderBy,
+  setOrderBy,
+  setPlatform,
+}: Props) => {
   return (
     <div className="container-fluid d-flex flex-column gap-3 p-4 m-0">
       <div className="container-fluid p-0 m-0 ">
@@ -33,7 +40,7 @@ const Context = ({ gameData, isLoading, setOrderBy, setPlatform }: Props) => {
       </div>
 
       <div className="d-flex justify-content-start gap-3">
-        <OrderByDropDown onClick={(p) => setOrderBy(p)} />
+        <OrderByDropDown orderBy={orderBy} setOrderBy={setOrderBy} />
         <PlatformsDropDown onClick={(p) => setPlatform(p)} />
       </div>
 

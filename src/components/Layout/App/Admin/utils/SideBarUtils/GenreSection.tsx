@@ -36,7 +36,14 @@ const GenreSection = ({ onClick, genre }: Props) => {
 
     const genre = e.currentTarget.getAttribute("data-key");
     if (genre === null) return;
-    setSearchParams({ genre: genre });
+
+    const params = new URLSearchParams(searchParams);
+    if (genre === "clear") {
+      params.delete("genre");
+    } else {
+      params.set("genre", genre);
+    }
+    setSearchParams(params);
   };
 
   return (
@@ -67,12 +74,14 @@ const GenreSection = ({ onClick, genre }: Props) => {
                   <span>{g}</span>
                 </a>
                 {genre === currGenre && (
-                  <button
+                  <a
                     className="btn btn-sm p-0 m-0"
-                    onClick={() => setSearchParams({})}
+                    role="button"
+                    data-key="clear"
+                    onClick={handleGenresClick}
                   >
                     <IoClose color="red" size={20} />
-                  </button>
+                  </a>
                 )}
               </LiHover>
             );

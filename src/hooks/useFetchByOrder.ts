@@ -33,6 +33,7 @@ const useFetchByOrder = () => {
       );
       const result = await response.json();
       setData(result);
+      console.log(result);
       setTimeout(() => setIsLoading(false), 3000);
     } catch (error) {
       console.error("Failed to Connect to the Backend...", error);
