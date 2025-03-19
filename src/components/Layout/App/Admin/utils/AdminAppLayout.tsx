@@ -9,6 +9,7 @@ const AdminAppLayout = () => {
     isLoading,
     orderBy,
     setOrderBy,
+    platform,
     setPlatform,
     genre,
     setGenre,
@@ -34,6 +35,7 @@ const AdminAppLayout = () => {
               isLoading={isLoading}
               orderBy={orderBy}
               setOrderBy={setOrderBy}
+              platform={platform}
               setPlatform={setPlatform}
             />
           </div>

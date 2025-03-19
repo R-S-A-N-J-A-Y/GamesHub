@@ -18,6 +18,7 @@ interface Props {
   isLoading: boolean;
   orderBy: string;
   setOrderBy: (order: string) => void;
+  platform: string;
   setPlatform: (platform: string) => void;
 }
 
@@ -26,6 +27,7 @@ const Context = ({
   isLoading,
   orderBy,
   setOrderBy,
+  platform,
   setPlatform,
 }: Props) => {
   return (
@@ -41,7 +43,7 @@ const Context = ({
 
       <div className="d-flex justify-content-start gap-3">
         <OrderByDropDown orderBy={orderBy} setOrderBy={setOrderBy} />
-        <PlatformsDropDown onClick={(p) => setPlatform(p)} />
+        <PlatformsDropDown setPlatform={setPlatform} platform={platform} />
       </div>
 
       <div className="container-fluid p-0 m-0">

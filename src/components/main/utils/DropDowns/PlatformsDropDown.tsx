@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import {
   FaPlaystation,
@@ -8,17 +7,36 @@ import {
   FaApple,
   BsAndroid2,
 } from "../../../../../public/Icons/icons";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 interface props {
-  onClick: (p: string) => void;
+  setPlatform: (p: string) => void;
+  platform: string;
 }
 
-const PlatformsDropDown = ({ onClick }: props) => {
-  const [platform, selectPlatform] = useState("Platforms");
+const PlatformsDropDown = ({ setPlatform, platform }: props) => {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleClick = (p: string) => {
-    selectPlatform(p === "Clear" ? "Platforms" : p);
-    onClick(p.toLowerCase());
+  useEffect(() => {
+    const URLplatform = searchParams.get("platform")?.toLowerCase();
+    console.log(URLplatform);
+    if (URLplatform) setPlatform(URLplatform);
+    else setPlatform("");
+  }, [searchParams]);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+
+    const Selectedplatform = e.currentTarget.getAttribute("data-key");
+    if (Selectedplatform === null) return;
+
+    console.log(Selectedplatform);
+    const params = new URLSearchParams(searchParams);
+    if (Selectedplatform === "Clear") params.delete("platform");
+    else params.set("platform", Selectedplatform);
+
+    setSearchParams(params);
   };
 
   return (
@@ -36,14 +54,17 @@ const PlatformsDropDown = ({ onClick }: props) => {
               textAlign: "center",
             }}
           >
-            {platform}
+            {platform === "clear" || platform === ""
+              ? "Platforms"
+              : platform.charAt(0).toUpperCase() + platform.slice(1)}
           </a>
           <ul className="dropdown-menu p-2" aria-labelledby="platformsDropDown">
             <li>
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2 "
-                onClick={() => handleClick("PC")}
+                data-key="Pc"
+                onClick={handleClick}
               >
                 <FaWindows size={"20px"} />
                 PC
@@ -51,7 +72,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("PlayStation")}
+                data-key="Playstation"
+                onClick={handleClick}
               >
                 <FaPlaystation size={"20px"} />
                 Play Station
@@ -59,7 +81,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("Xbox")}
+                data-key="Xbox"
+                onClick={handleClick}
               >
                 <FaXbox size={"18px"} />
                 Xbox
@@ -67,7 +90,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("Nintendo")}
+                data-key="Nintendo"
+                onClick={handleClick}
               >
                 <BsNintendoSwitch size={"16px"} />
                 Nintendo
@@ -75,7 +99,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("Mac")}
+                data-key="Mac"
+                onClick={handleClick}
               >
                 <FaApple size={"20px"} />
                 Mac
@@ -83,7 +108,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("IOS")}
+                data-key="Ios"
+                onClick={handleClick}
               >
                 <FaApple size={"20px"} />
                 Ios
@@ -91,7 +117,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2"
-                onClick={() => handleClick("Android")}
+                data-key="Android"
+                onClick={handleClick}
               >
                 <BsAndroid2 size={"20px"} className="p-0" />
                 Android
@@ -99,7 +126,8 @@ const PlatformsDropDown = ({ onClick }: props) => {
               <a
                 href="#"
                 className="nav-link dropdown-item d-flex justify-content-start align-items-center gap-2 text-danger"
-                onClick={() => handleClick("Clear")}
+                data-key="Clear"
+                onClick={handleClick}
               >
                 <ImCross color="red" />
                 Clear
