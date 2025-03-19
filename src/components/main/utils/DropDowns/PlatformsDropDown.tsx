@@ -20,7 +20,6 @@ const PlatformsDropDown = ({ setPlatform, platform }: props) => {
 
   useEffect(() => {
     const URLplatform = searchParams.get("platform")?.toLowerCase();
-    console.log(URLplatform);
     if (URLplatform) setPlatform(URLplatform);
     else setPlatform("");
   }, [searchParams]);

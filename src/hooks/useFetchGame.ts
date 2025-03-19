@@ -13,7 +13,7 @@ const useFetchGame = () => {
     const [data, setData] = useState<gameObj []>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect( () => {
+    const fetchGame = () => {
         fetch("http://localhost:3000/getgame")
         .then(res => res.json())
         .then(async(data) => {
@@ -27,9 +27,13 @@ const useFetchGame = () => {
             alert("Error Connecting To Backend...");
             console.warn("Error Loading Genres: ", err.message);
         })
-    }, [] );
+    }
+
+    useEffect( () => {
+        fetchGame();
+    }, [] )
     // console.log(data);
-    return {data, setData, isLoading, setIsLoading};
+    return {data, setData, isLoading, setIsLoading, fetchGame};
 }
 
 export default useFetchGame;

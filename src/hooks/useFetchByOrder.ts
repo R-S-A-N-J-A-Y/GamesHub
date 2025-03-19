@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useFetchGame, { gameObj } from "./useFetchGame";
 
 const useFetchByOrder = () => {
-  const { data, setData, isLoading, setIsLoading } = useFetchGame();
+  const { data, setData, isLoading, setIsLoading, fetchGame } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
   
   const [orderBy, setOrderBy] = useState("");
@@ -19,10 +19,14 @@ const useFetchByOrder = () => {
 
   //set the isLoading, and calling the request calling function.
   useEffect(() => {
+    setIsLoading(true);
     if (platform || orderBy || genre) {
-      setIsLoading(true);
       console.log("platform: " + platform, "OrderBy: " + orderBy, "Genre: " + genre);
       fetchGamesByFilters();
+    }
+    else{
+      console.log("No Filters Applied...");
+      fetchGame();
     }
   }, [platform, orderBy, genre]);
 
