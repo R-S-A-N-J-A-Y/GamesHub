@@ -5,7 +5,7 @@ const useFetchByOrder = () => {
   const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
   
-  const [orderBy, setOrderBy] = useState("");
+  const [orderBy, setOrderBy] = useState("clear");
   const [platform, setPlatform] = useState("");
 
   const [genre, setGenre] = useState("");
@@ -21,6 +21,7 @@ const useFetchByOrder = () => {
   useEffect(() => {
     if (platform || orderBy || genre) {
       setIsLoading(true);
+      console.log("platform: " + platform, "OrderBy: " + orderBy, "Genre: " + genre);
       fetchGamesByFilters();
     }
   }, [platform, orderBy, genre]);

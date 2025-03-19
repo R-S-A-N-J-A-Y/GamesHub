@@ -13,8 +13,8 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
   useEffect(() => {
     const order = searchParams.get("orderBy")?.toLowerCase();
     if (order) setOrderBy(order);
-    else setOrderBy("");
-  });
+    else setOrderBy("clear");
+  }, [searchParams]);
 
   const handleOrder = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -44,16 +44,18 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
               textAlign: "center",
             }}
           >
-            {orderBy === "clear" || orderBy == ""
+            {orderBy === "clear"
               ? "Order By"
-              : orderBy.charAt(0).toUpperCase() + orderBy.slice(1)}
+              : orderBy.charAt(0).toUpperCase() +
+                orderBy.slice(1).split("-").join(" ")}
           </a>
           <ul className="dropdown-menu p-2" aria-labelledby="platformsDropDown">
             <li>
               <a
                 className="nav-link dropdown-item"
-                href="#"
-                // onClick={() => handleOrder("Popularity")}
+                role="button"
+                data-key={"Popularity"}
+                onClick={handleOrder}
               >
                 Popularity
               </a>
@@ -71,8 +73,9 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
             <li>
               <a
                 className="nav-link dropdown-item"
-                href="#"
-                // onClick={() => handleOrder("Date")}
+                role="button"
+                data-key={"Release-date"}
+                onClick={handleOrder}
               >
                 Release Date
               </a>
@@ -80,8 +83,9 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
             <li>
               <a
                 className="nav-link dropdown-item"
-                href="#"
-                // onClick={() => handleOrder("Likes")}
+                role="button"
+                data-key={"Ratings"}
+                onClick={handleOrder}
               >
                 Ratings
               </a>
