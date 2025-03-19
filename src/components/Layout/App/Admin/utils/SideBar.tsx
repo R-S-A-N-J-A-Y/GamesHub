@@ -11,11 +11,11 @@ const NavbarAnchor = styled.a`
 `;
 
 interface Props {
-  onClick: (p: string) => void;
+  setGenre: (p: string) => void;
   genre: string;
 }
 
-const SideBar = ({ onClick, genre }: Props) => {
+const SideBar = ({ setGenre, genre }: Props) => {
   return (
     <div
       className="rounded-end-4 p-0 position-absolute w-100"
@@ -61,7 +61,7 @@ const SideBar = ({ onClick, genre }: Props) => {
                 Next Week
               </NavbarAnchor>
             </li>
-            <GenreSection onClick={onClick} genre={genre} />
+            <GenreSection setGenre={setGenre} genre={genre} />
           </ul>
         </div>
       </nav>

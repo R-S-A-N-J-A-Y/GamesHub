@@ -14,11 +14,6 @@ const AdminAppLayout = () => {
     setGenre,
   } = useFetchByOrder();
 
-  const handleGenre = (g: string) => {
-    console.log(g);
-    setGenre(g);
-  };
-
   return (
     <div style={{ backgroundColor: "whitesmoke" }}>
       <Header />
@@ -29,7 +24,7 @@ const AdminAppLayout = () => {
               className="rounded-end-4 p-0 position-fixed bg-white"
               style={{ width: "inherit" }}
             >
-              <SideBar onClick={handleGenre} genre={genre} />
+              <SideBar setGenre={setGenre} genre={genre} />
             </div>
           </div>
 

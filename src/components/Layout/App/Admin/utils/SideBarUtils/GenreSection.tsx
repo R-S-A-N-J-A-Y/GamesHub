@@ -12,20 +12,20 @@ const LiHover = styled.li`
 `;
 
 interface Props {
-  onClick: (p: string) => void;
+  setGenre: (p: string) => void;
   genre: string;
 }
 
-const GenreSection = ({ onClick, genre }: Props) => {
+const GenreSection = ({ setGenre, genre }: Props) => {
   const genres = getGenres();
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const genreFromUrl = searchParams.get("genre");
     if (genreFromUrl) {
-      onClick(genreFromUrl.toLowerCase());
+      setGenre(genreFromUrl.toLowerCase());
     } else {
-      onClick("clear");
+      setGenre("");
     }
   }, [searchParams]);
 

@@ -13,7 +13,7 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
   useEffect(() => {
     const order = searchParams.get("orderBy")?.toLowerCase();
     if (order) setOrderBy(order);
-    else setOrderBy("clear");
+    else setOrderBy("");
   }, [searchParams]);
 
   const handleOrder = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -44,7 +44,7 @@ const OrderByDropDown = ({ orderBy, setOrderBy }: props) => {
               textAlign: "center",
             }}
           >
-            {orderBy === "clear"
+            {orderBy === "clear" || orderBy === ""
               ? "Order By"
               : orderBy.charAt(0).toUpperCase() +
                 orderBy.slice(1).split("-").join(" ")}

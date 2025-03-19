@@ -5,7 +5,7 @@ const useFetchByOrder = () => {
   const { data, setData, isLoading, setIsLoading } = useFetchGame();
   const [gameData, setGameData] = useState<gameObj[]>([]);
   
-  const [orderBy, setOrderBy] = useState("clear");
+  const [orderBy, setOrderBy] = useState("");
   const [platform, setPlatform] = useState("");
 
   const [genre, setGenre] = useState("");
