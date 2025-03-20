@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 const NUserAppLayout = lazy(() => import("./NonUser/NUserAppLayout"));
-const UserAppLayout = lazy(() => import("./User/UserAppLayout"));
+const UserController = lazy(() => import("./User/UserController"));
 const AdminController = lazy(() => import("./Admin/AdminController"));
 
 const AppLayout = () => {
@@ -11,7 +11,7 @@ const AppLayout = () => {
       <Routes>
         <Route path="/" element={<NUserAppLayout />}></Route>
         <Route path="/admin/*" element={<AdminController />}></Route>
-        <Route path="/user" element={<UserAppLayout />}></Route>
+        <Route path="/user/*" element={<UserController />}></Route>
       </Routes>
     </Suspense>
   );

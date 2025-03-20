@@ -1,4 +1,4 @@
-import { NavbarAnchor } from "../../Admin/utils/SideBar";
+import { NavbarAnchor } from "../../../Admin/utils/SideBar";
 import GenreSection from "./SideBarUtils/GenreSection";
 
 interface Props {
@@ -23,7 +23,7 @@ const SideBar = ({ setGenre, genre }: Props) => {
                 href="#"
                 className="nav-link fs-4 fw-bolder ms-2 rounded-3"
               >
-                Reviews
+                Explore
               </NavbarAnchor>
             </li>
             <li className="navbar-item w-100 border rounded-3 px-2 py-1">

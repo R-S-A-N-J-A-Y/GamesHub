@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import getGenres from "../../../../../../hooks/getGenres";
+import getGenres from "../../../../../../../hooks/getGenres";
 import styled from "styled-components";
 import { IoClose } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";

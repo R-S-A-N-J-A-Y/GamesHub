@@ -1,7 +1,7 @@
-import useFetchByOrder from "../../../../hooks/useFetchByOrder";
-import Context from "../../../main/Context";
-import Header from "./utils/Header";
-import SideBar from "./utils/SideBar";
+import useFetchByOrder from "../../../../../hooks/useFetchByOrder";
+import Context from "../../../../main/Context";
+import Header from "./Home/Header";
+import SideBar from "./Home/SideBar";
 
 const UserAppLayout = () => {
   const {
