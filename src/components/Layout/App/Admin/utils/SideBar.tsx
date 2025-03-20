@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GenreSection from "./SideBarUtils/GenreSection";
 
-const NavbarAnchor = styled.a`
+export const NavbarAnchor = styled.a`
   transition: background-color 0.3s ease;
   text-decoration: none;
 

@@ -4,13 +4,16 @@ import Header from "./utils/Header";
 import SideBar from "./utils/SideBar";
 
 const NUserAppLayout = () => {
-  const { gameData, isLoading, setOrderBy, setPlatform, setGenre } =
-    useFetchByOrder();
-
-  const handleGenre = (g: string) => {
-    console.log(g);
-    setGenre(g);
-  };
+  const {
+    gameData,
+    isLoading,
+    orderBy,
+    setOrderBy,
+    platform,
+    setPlatform,
+    genre,
+    setGenre,
+  } = useFetchByOrder();
 
   return (
     <div style={{ backgroundColor: "whitesmoke" }}>
@@ -22,7 +25,7 @@ const NUserAppLayout = () => {
               className="rounded-end-4 p-0 position-fixed bg-white"
               style={{ width: "inherit" }}
             >
-              <SideBar onClick={handleGenre} />
+              <SideBar setGenre={setGenre} genre={genre} />
             </div>
           </div>
 
@@ -30,7 +33,9 @@ const NUserAppLayout = () => {
             <Context
               gameData={gameData}
               isLoading={isLoading}
+              orderBy={orderBy}
               setOrderBy={setOrderBy}
+              platform={platform}
               setPlatform={setPlatform}
             />
           </div>
