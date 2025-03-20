@@ -7,7 +7,7 @@ const SignIn = lazy(() => import("./components/Layout/Login/SignIn"));
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading Page...</div>}>
       <Routes>
         <Route path="/*" element={<AppLayout />} />
         <Route path="/SignUp" element={<SignUp />} />

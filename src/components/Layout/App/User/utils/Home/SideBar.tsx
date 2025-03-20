@@ -20,7 +20,7 @@ const SideBar = ({ setGenre, genre }: Props) => {
           <ul className="navbar-nav nav d-flex gap-2">
             <li className="navbar-item w-100">
               <NavbarAnchor
-                href="#"
+                href="/user/explore"
                 className="nav-link fs-4 fw-bolder ms-2 rounded-3"
               >
                 Explore
