@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import "../../../styles/Skeleton.css";
+import "../../../../styles/Skeleton.css";
 
 const gameCardSkeleton = () => {
   return (

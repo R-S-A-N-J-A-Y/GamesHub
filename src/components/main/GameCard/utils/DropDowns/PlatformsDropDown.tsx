@@ -6,7 +6,7 @@ import {
   BsNintendoSwitch,
   FaApple,
   BsAndroid2,
-} from "../../../../../public/Icons/icons";
+} from "../../../../../../public/Icons/icons";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 

@@ -1,5 +1,5 @@
 import useFetchByOrder from "../../../../../hooks/useFetchByOrder";
-import Context from "../../../../main/Context";
+import Context from "../../../../main/GameCard/Context";
 import Header from "./Header";
 import SideBar from "./SideBar";
 

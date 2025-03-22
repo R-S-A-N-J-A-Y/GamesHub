@@ -1,5 +1,5 @@
 import Like from "./Like";
-import { gameObj } from "../../../hooks/useFetchGame";
+import { gameObj } from "../../../../hooks/useFetchGame";
 
 import {
   FaPlaystation,
@@ -8,7 +8,7 @@ import {
   BsNintendoSwitch,
   FaApple,
   BsAndroid2,
-} from "../../../../public/Icons/icons";
+} from "../../../../../public/Icons/icons";
 
 interface props {
   data: gameObj[];

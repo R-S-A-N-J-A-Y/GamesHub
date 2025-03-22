@@ -5,7 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 // import { gameObj } from "../../hooks/useFetchGame";
 // import useFetchGame from "../../hooks/useFetchGame";
 // import useFetchByOrder from "../../hooks/useFetchByOrder";
-import { gameObj } from "../../hooks/useFetchGame";
+import { gameObj } from "../../../hooks/useFetchGame";
 
 //pages
 import OrderByDropDown from "./utils/DropDowns/OrderByDropDown";
