@@ -1,7 +1,7 @@
-import useFetchByOrder from "../../../../../hooks/useFetchByOrder";
-import Context from "../../../../main/Context";
-import Header from "./Home/Header";
-import SideBar from "./Home/SideBar";
+import useFetchByOrder from "../../../../../../hooks/useFetchByOrder";
+import Context from "../../../../../main/Context";
+import Header from "./Header";
+import SideBar from "./SideBar";
 
 const UserAppLayout = () => {
   const {
@@ -20,9 +20,9 @@ const UserAppLayout = () => {
       <Header />
       <div className="container-fluid" style={{ paddingTop: "100px" }}>
         <div className="row">
-          <div className="col-lg-2 d-none d-lg-block position-relative sidebar">
+          <div className="m-0 p-0 col-lg-2 d-none d-lg-block position-relative">
             <div
-              className="rounded-end-4 p-0 position-fixed bg-white"
+              className="m-0 p-0 position-fixed"
               style={{ width: "inherit" }}
             >
               <SideBar setGenre={setGenre} genre={genre} />
