@@ -1,3 +1,4 @@
+import Layout from "../../../../../main/ExploreCard/Layout";
 import Header from "./Header/Header";
 import Sidebar from "./SideBar/Sidebar";
 
@@ -15,7 +16,9 @@ const ExploreAppLayout = () => {
               <Sidebar />
             </div>
           </div>
-          <div className="m-0 p-0 col-lg-10 bg-success-subtle">hi</div>
+          <div className="m-0 p-0 col-lg-10 bg-success-subtle">
+            <Layout />
+          </div>
         </div>
       </div>
     </div>
