@@ -1,11 +1,12 @@
 import AmongUs from "../../../../../public/GamePreviews/AmongUs.jpg";
+import useFetchPlatforms from "../../../../hooks/getPlatform";
 
 const Explorecard = () => {
-  const arr = [1, 2, 3, 4, 5, 5, 6, 6, 66, 6, 6, 6, 6];
+  const arr = useFetchPlatforms();
 
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      {arr.map((index) => (
+    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xxl-4 g-4">
+      {arr.platforms.map((name, index) => (
         <div
           key={index}
           className="col d-flex flex-column position-relative mb-4"
@@ -29,8 +30,8 @@ const Explorecard = () => {
             >
               <ul className="mt-3 list-unstyled p-3 d-flex flex-column justify-content-around align-items-center">
                 <li className="mb-2">
-                  <p className="m-1 fs-4 fw-bolder">
-                    <span className="border-bottom d-inline-block">PC</span>
+                  <p className="m-1 fs-4 fw-bolder text-center">
+                    <span className="border-bottom d-inline-block">{name}</span>
                   </p>
                 </li>
                 <li>
